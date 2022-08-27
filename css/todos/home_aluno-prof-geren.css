@@ -30,6 +30,7 @@ a{
 }
 .op_explicacao{
     display: none;
+    padding-top: 10px;
     font-size: 1.1rem;
 }
 .op:hover .op_explicacao{

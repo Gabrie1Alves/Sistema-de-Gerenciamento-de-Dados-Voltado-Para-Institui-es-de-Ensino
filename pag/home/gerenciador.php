@@ -17,43 +17,43 @@
             <div class="secao_opcoes">
                 <a href="">
                     <div class="op">
-                        teste
+                        Cadastrar aluno
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Cadastrar professor
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Alterar cadastro de aluno
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Alterar cadastro de professor
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Cadastrar disciplina
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Alterar cadastro de disciplina
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Cadastrar horário de aula
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>

@@ -17,47 +17,34 @@
             <div class="secao_opcoes">
                 <a href="">
                     <div class="op">
-                        teste
+                        Visualizar notas
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Visualizar faltas
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Mural de atividades
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Horário de aula
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        teste
+                        Configurar conta
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="">
-                    <div class="op">
-                        teste
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        teste
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-
             </div>
         </div>
 

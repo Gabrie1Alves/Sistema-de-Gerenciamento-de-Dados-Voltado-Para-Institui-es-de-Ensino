@@ -9,6 +9,8 @@ Enviar os dados de ID + Login para as próximas paginas para
 ter certeza que está logado.
 */
 
+/*SE ESTIVER INCORRETO REDIRECIONAR O USER PARA LOGIN*/
+
 
 //envia para a próxima página
 //se for gerenciador por exemplo, envia para essa:
