@@ -1,0 +1,46 @@
+/* ___________________CORPO____________________*/
+body, span, p, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+/*____________________HEADER________________________*/
+.header_total{
+    width: 100%;
+    line-height: 1;
+    color: white;
+    font-size: 2.0rem;
+    background-color: black;
+}
+.header{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.header_op{
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+
+/*____________________FOOTER________________________*/
+.footer{
+    bottom: 0px;
+    width: 100%;
+    z-index: 999;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    font-size: 1.0rem;
+    text-align: center;
+    position: absolute;
+    background-color: black;
+}
