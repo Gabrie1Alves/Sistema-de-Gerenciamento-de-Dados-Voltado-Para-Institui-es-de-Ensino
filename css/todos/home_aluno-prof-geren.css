@@ -1,0 +1,37 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.apresentacao_home{
+    width: 100%;
+    color: black;
+    padding: 30px 0;
+    font-size: 1.5rem;
+}
+.secao_opcoes{
+    width: 100%;
+    display: grid;
+    color: white;
+    grid-template-columns: repeat(4, 1fr);
+}
+.op{
+    margin: 10px;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 14px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+}
+.op_explicacao{
+    display: none;
+    font-size: 1.1rem;
+}
+.op:hover .op_explicacao{
+    display: block;
+}
