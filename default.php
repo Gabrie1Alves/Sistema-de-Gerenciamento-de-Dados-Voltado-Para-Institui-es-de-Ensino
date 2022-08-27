@@ -16,7 +16,7 @@
                     Logo
                 </div>
                 <div class="login_info">
-                        <form enctype = "multipart/form-data" form action="./user/user.php" method="POST">
+                        <form enctype = "multipart/form-data" form action="./pag/avalia_login.php" method="POST">
                             Código: <br>
                             <input class="login_input" name="cod" required> <br>    
                             Senha: <br>

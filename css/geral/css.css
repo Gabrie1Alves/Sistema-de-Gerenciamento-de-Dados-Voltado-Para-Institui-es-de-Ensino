@@ -25,9 +25,9 @@ body, span, p, h1, h2, h3, h4, h5, h6{
     grid-template-columns: repeat(4, 1fr);
 }
 .header_op{
-    text-align: center;
     padding: 15px 0;
     cursor: pointer;
+    text-align: center;
 }
 
 
