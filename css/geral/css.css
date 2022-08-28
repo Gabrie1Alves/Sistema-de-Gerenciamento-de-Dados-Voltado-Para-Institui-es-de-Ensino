@@ -49,3 +49,9 @@ a{
     background-color: black;
     position: fixed !important;
 }
+
+/* ________________________EXTRAS________________________ */
+
+.d-none{
+    display: none;
+}
