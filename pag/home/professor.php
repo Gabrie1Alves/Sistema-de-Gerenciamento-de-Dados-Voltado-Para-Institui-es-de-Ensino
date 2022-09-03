@@ -23,13 +23,7 @@
                 </a>
                 <a href="">
                     <div class="op">
-                        Atualizao de notas
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Atualização de faltas
+                        Atualização de notas e faltas
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>

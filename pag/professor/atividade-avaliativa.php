@@ -18,13 +18,14 @@
             </select>
             <p class="turma">Turma: xxxxx</p>
             <form enctype = "multipart/form-data" form action="./pag/avalia_login.php?infos=atividadesAvaliativas" method="POST">
+                <input class="d-none" name="atividade" id="atividade" placeholder="nome da atividade" value="COLOCAR A TURMA AQUI" required>
                 Nome da atividade: <br>
                 <input class="input" name="atividade" id="atividade" placeholder="nome da atividade" required> <br>    
-                Sigla <br>
+                Sigla: <br>
                 <input class="input" name="sigla" id="sigla" placeholder="NDA" required > <br>
-                Valor <br>
+                Valor: <br>
                 <input class="input" name="valor" id="valor" placeholder="30" required > <br>
-                Data <br>
+                Data: <br>
                 <input class="input" name="data" id="data" required placeholder="30/10/22" type="date">
                 <br>
                 <button class="btn" type="submit">Submeter</button>
