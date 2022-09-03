@@ -15,33 +15,23 @@
                 Olá {{nome}}, bem vindo ao painel do Aluno! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
-                <a href="">
+                <a href="../aluno/view-infos.php">
                     <div class="op">
-                        Visualizar notas
+                        Visualizar notas e faltas
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="">
-                    <div class="op">
-                        Visualizar faltas
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
+
+                <a href="../aluno/atividades.php">
                     <div class="op">
                         Mural de atividades
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="">
+
+                <a href="../aluno/horario.php">
                     <div class="op">
-                        Horário de aula
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Configurar conta
+                        Horário
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>

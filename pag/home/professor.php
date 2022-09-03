@@ -15,6 +15,12 @@
                 Olá {{nome}}, bem vindo ao painel do Professor! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
+            <a href="../professor/atividade-avaliativa.php">
+                    <div class="op">
+                        Atividades avaliativas
+                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                    </div>
+                </a>
                 <a href="">
                     <div class="op">
                         Atualizao de notas

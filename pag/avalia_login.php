@@ -26,11 +26,11 @@ $user = [
 if($user['cod'] === 'aluno'){
     echo "<script> window.location = './home/aluno.php'</script>";
 }else if($user['cod'] === 'professor'){
-    echo "<script> window.location = './home/aluno.php'</script>";
+    echo "<script> window.location = './home/professor.php'</script>";
 }else if($user['cod'] === 'gerenciador'){
-    echo "<script> window.location = './home/aluno.php'</script>";
+    echo "<script> window.location = './home/gerenciador.php'</script>";
 }else{
-
+    echo "<script> window.location = '../default.php'</script>";
 }
 
 ?>

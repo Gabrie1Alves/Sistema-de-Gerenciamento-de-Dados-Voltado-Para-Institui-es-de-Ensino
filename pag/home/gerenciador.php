@@ -29,6 +29,18 @@
                 </a>
                 <a href="">
                     <div class="op">
+                        Cadastrar disciplina
+                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="op">
+                        Cadastrar horário de aula
+                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="op">
                         Alterar cadastro de aluno
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
@@ -41,19 +53,13 @@
                 </a>
                 <a href="">
                     <div class="op">
-                        Cadastrar disciplina
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
                         Alterar cadastro de disciplina
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        Cadastrar horário de aula
+                        Alterar horário de aula
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>

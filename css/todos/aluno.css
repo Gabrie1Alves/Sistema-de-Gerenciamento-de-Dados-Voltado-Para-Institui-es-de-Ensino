@@ -1,0 +1,48 @@
+table{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px !important;
+}
+tr{
+    padding: 10px 50px;
+    border: 1px solid black;
+}
+th{
+    font-size: 1.2rem ;
+    border: 1px solid black;
+}
+.tabela-topo{
+    color: white;
+    background-color: black;
+}
+.title{
+    width: 100%;
+    color: black;
+    font-weight: 800;
+    font-size: 1.4rem;
+    padding-top: 30px;
+    text-align: center;
+}
+/* ___________________VIEW INFOS________________________ */
+.disciplina{
+    width: 100%;
+    color: white;
+    background-color: black;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* ____________________HORARIO______________________ */
+.disciplinas{
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+.disciplinas-siglas{
+    font-weight: 700;
+    padding-top: 5px;
+    font-size: 1.2rem;
+}
