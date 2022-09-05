@@ -21,19 +21,22 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
+        <link rel="stylesheet" href="../../css/todos/turma.css">
     </head>
     <body>
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
             <form enctype = "multipart/form-data" form action="<?= $url?>" method="POST">
-                Selecione a turma que deseja trabalhar:
-                <select name="turma" id="turma">
-                    <option value="turma1">Turma 1</option>
-                    <option value="turma2">Turma 2</option>
-                </select>
-                
-                <button class="login_btn" type="submit">Entrar</button>
+                <div class="formTurma">
+                    <p>Selecione a turma que deseja trabalhar:</p>
+                    <select class="select" name="turma" id="turma">
+                        <option value="turma1">Turma 1</option>
+                        <option value="turma2">Turma 2</option>
+                    </select>
+                    <br>
+                    <button class="btn" type="submit">Entrar</button>
+                </div>
             </form>
         </div>
 

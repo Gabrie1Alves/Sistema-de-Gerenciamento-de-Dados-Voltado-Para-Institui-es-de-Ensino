@@ -1,0 +1,32 @@
+p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.formTurma{
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    margin-top: 40px;
+    border: 1px solid black;
+    border-radius: 14px;
+}
+.select{
+    width: 300px;
+    font-size: 1rem;
+    text-align: center;
+    margin:40px 0 20px 0;
+    margin-left: calc(50% - 150px);
+}
+.btn{
+    width: 200px;
+    font-size: 1rem;
+    margin-left: calc(50% - 100px);
+    background-color: black;
+    color: white;
+    border-radius: 14px;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: pointer;
+}
