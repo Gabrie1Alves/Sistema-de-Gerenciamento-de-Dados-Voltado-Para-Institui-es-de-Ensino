@@ -45,7 +45,12 @@
                 <p>Altere uma atividade aqui!</p>
                 <input class="d-none" name="atividade" id="atividade" placeholder="nome da atividade" value="COLOCAR A TURMA AQUI" required>
                 Nome da atividade: <br>
-                <input class="input" name="atividade" id="atividade" placeholder="nome da atividade" required> <br>    
+                <!-- <input class="input" name="atividade" id="atividade" placeholder="nome da atividade" required> <br>     -->
+                <select class="input" name="select">
+                    <option value="valor1">Valor 1</option>
+                    <option value="valor2" selected>Valor 2</option>
+                    <option value="valor3">Valor 3</option>
+                </select>
                 Sigla: <br>
                 <input class="input" name="sigla" id="sigla" placeholder="NDA" required > <br>
                 Valor: <br>
@@ -58,16 +63,15 @@
 
             <form id="excluir" class="d-none" enctype = "multipart/form-data" form action="./pag/avalia_login.php?infos=atividadesAvaliativas" method="POST">
                 <p>Exclua atividades aqui!</p>
-                <input class="d-none" name="atividade" id="atividade" placeholder="nome da atividade" value="COLOCAR A TURMA AQUI" required>
                 Selecione as atividades que deseja excluir: <br>
                 
                 <div class="p-b">
-                    <input type = "checkbox" id = "música" name = "interesse" value = "música">
-                    <label for = "music"> AV1 </ label>
+                    <input type = "checkbox" name = "at1">
+                    <label> AV1 </label>
                 </div>
                 <div class="p-b">
-                    <input type = "checkbox" id = "música" name = "interesse" value = "música">
-                    <label for = "music"> AV1 </ label>
+                    <input type = "checkbox" name = "at2">
+                    <label> AV1 </label>
                 </div>
                 
                 <button class="btn" type="submit">Submeter</button>
