@@ -15,6 +15,12 @@
                 Olá {{nome}}, bem vindo ao painel do Gerenciador! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
+                <a href="../gerenciador/cadastro.php">
+                    <div class="op">
+                        Cadastrar
+                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                    </div>
+                </a>
                 <a href="">
                     <div class="op">
                         Cadastrar aluno

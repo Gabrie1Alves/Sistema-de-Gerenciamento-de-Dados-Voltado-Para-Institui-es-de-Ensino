@@ -5,13 +5,13 @@
     if ($pag === 'atividades'){
         $url = $url.'atividade-avaliativa.php';
     }else if ($pag === 'notas_faltas'){
-
+        $url = $url.'notas-faltas.php';
     }else if ($pag === 'mural'){
-
+        $url = $url.'mural.php';
     }else if ($pag === 'complemento'){
-
+        $url = $url.'complemento.php';
     }else{
-
+        $url = '../turma/turma.php';
     }
 ?>
 <!DOCTYPE HTML>
@@ -25,7 +25,6 @@
     </head>
     <body>
         <?php include_once '../../header_footer/header.php'?>
-
         <div class="container">
             <form enctype = "multipart/form-data" form action="<?= $url?>" method="POST">
                 <div class="formTurma">
