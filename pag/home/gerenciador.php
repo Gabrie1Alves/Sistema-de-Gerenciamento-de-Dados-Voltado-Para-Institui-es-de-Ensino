@@ -21,9 +21,9 @@
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="">
+                <a href="../gerenciador/alterar.php">
                     <div class="op">
-                        Cadastrar aluno
+                        Alterar
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>

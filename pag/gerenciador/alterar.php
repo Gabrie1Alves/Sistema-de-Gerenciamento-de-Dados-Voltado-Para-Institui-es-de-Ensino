@@ -21,14 +21,33 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <div class="selecao">
-                <button onclick="select_op_professor('aluno')" class="select">Aluno</button>
-                <button onclick="select_op_professor('professor')" class="select">Professor</button>
-                <button onclick="select_op_professor('disciplina')" class="select">Disciplina</button>
-                <button onclick="select_op_professor('horario')" class="select">Turma</button>
-            </div>
-            <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
-                <p>Cadastre um novo aluno aqui!</p>
+
+        <?php if(!isset($_POST['acao'])): ?>
+            <form id="aluno" enctype = "multipart/form-data" form action="../gerenciador/alterar.php" method="POST">
+                <p>Selecione a alteração desejada:</p>
+                <div class="borda">
+                    Alterar: <br>
+                    <select onclick="teste()" id="acao" name="acao">
+                        <option value="aluno">Aluno</option>
+                        <option value="disciplina">Disciplina</option>
+                        <option value="turma">Turma</option>
+                        <option value="professor">Professor</option>
+                    </select> <br>
+                    <div class="ip-aluno">
+                        <span id="texto-select">RG do aluno:</span><br>
+                        <input class="input" name="info"  placeholder="nome da atividade" required> <br> 
+                    </div>
+                    
+                    <button class="btn" type="submit">Submeter</button>
+                </div>
+            </form>
+        <?php else:?>
+            <?php
+                $acao = $_POST['acao'];
+            ?>
+            <?php if($acao === 'aluno'):?>
+                <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
+                <p>Altere as informações do aluno aqui:</p>
                 <div class="borda">
                     <input class="d-none" name="id"  placeholder="nome da atividade" value="aluno" required>
                     Nome do aluno: <br>
@@ -49,10 +68,44 @@
                     <input class="input" name="turma" required> <br>
                     <button class="btn" type="submit">Submeter</button>
                 </div>
-            </form>
+                </form>
+            <?php endif;?>
+            <?php if($acao == 'disciplina'):?>
+                <form id="disciplina"  enctype = "multipart/form-data" form action="" method="POST">
+                <p>Altere as informações da disciplina aqui</p>
+                <div class="borda">
+                    <input class="d-none" name="id" placeholder="nome da atividade" value="professor" required>
+                    Nome: <br>
+                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
+                    Sigla: <br>
+                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
+                    Responsável: <br>
+                    <input class="input" name="entrada" placeholder="nome da atividade" required> <br>  
 
-            <form id="professor" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
-                <p>Cadastre um novo professor aqui!</p>
+                    <button class="btn" type="submit">Submeter</button>
+                </div>
+                </form>
+            <?php endif;?>
+            <?php if($acao == 'turma'):?>
+                <form id="horario"  enctype = "multipart/form-data" form action="" method="POST">
+                <p>Altere as informações da turma aqui</p>
+                Selecione as atividades que deseja excluir: <br>
+                <div class="borda">
+                    <input class="d-none" name="id" placeholder="nome da atividade" value="professor" required>
+                    Nome da turma: <br>
+                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
+                    Sigla da turma: <br>
+                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
+                    Insira as siglas das disciplinas: <br>
+                    <input class="input" name="entrada" placeholder="Ex: pt, mt, qm, ef" required> <br>  
+
+                    <button class="btn" type="submit">Submeter</button>
+                </div>
+                </form>
+            <?php endif;?>
+            <?php if($acao == 'professor'):?>
+                <form id="professor"  enctype = "multipart/form-data" form action="" method="POST">
+                <p>Altere as informações do professor aqui!</p>
                 <div class="borda">
                     <input class="d-none" name="id" placeholder="nome da atividade" value="professor" required>
                     Nome: <br>
@@ -73,37 +126,8 @@
                     <button class="btn" type="submit">Submeter</button>
                 </div>
             </form>
-
-            <form id="disciplina" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
-                <p>Cadastre uma nova disciplina aqui</p>
-                <div class="borda">
-                    <input class="d-none" name="id" placeholder="nome da atividade" value="professor" required>
-                    Nome: <br>
-                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
-                    Sigla: <br>
-                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
-                    Responsável: <br>
-                    <input class="input" name="entrada" placeholder="nome da atividade" required> <br>  
-
-                    <button class="btn" type="submit">Submeter</button>
-                </div>
-            </form>
-
-            <form id="horario" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
-                <p>Cadastre uma nova turma aqui</p>
-                Selecione as atividades que deseja excluir: <br>
-                <div class="borda">
-                    <input class="d-none" name="id" placeholder="nome da atividade" value="professor" required>
-                    Nome da turma: <br>
-                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
-                    Sigla da turma: <br>
-                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
-                    Insira as siglas das disciplinas: <br>
-                    <input class="input" name="entrada" placeholder="Ex: pt, mt, qm, ef" required> <br>  
-
-                    <button class="btn" type="submit">Submeter</button>
-                </div>
-            </form>
+            <?php endif;?>
+        <?php endif;?>
 
         </div>
 
