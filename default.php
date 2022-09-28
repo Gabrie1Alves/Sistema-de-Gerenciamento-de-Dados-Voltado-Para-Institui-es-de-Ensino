@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(isset($_SESSION)){
+        session_destroy();
+    }
+?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
@@ -8,7 +14,14 @@
         <link rel="stylesheet" href="./css/todos/login.css">
     </head>
     <body>
-        <?php include_once './header_footer/header.php'?>
+        <div class="header_total">
+            <div class="header">
+                <div class="header_op">logo</div>
+                <div class="header_op">Opção 2</div>
+                <div class="header_op">Opção 3</div>
+                <div class="header_op">Sair</div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="login">

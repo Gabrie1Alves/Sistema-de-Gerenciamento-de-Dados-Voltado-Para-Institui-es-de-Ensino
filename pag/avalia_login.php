@@ -18,19 +18,22 @@ ter certeza que está logado.
 // echo "<script> window.location = '../aluno/home.php'</script>"
 // echo "<script> window.location = './home/aluno.php'</script>";
 
-$user = [
-    'cod' => (isset($_POST['cod']) ? $_POST['cod'] : null), 
-    'senha' => (isset($_POST['senha']) ? $_POST['senha'] : null)
-];
-
-if($user['cod'] === 'aluno'){
-    echo "<script> window.location = './home/aluno.php'</script>";
-}else if($user['cod'] === 'professor'){
-    echo "<script> window.location = './home/professor.php'</script>";
-}else if($user['cod'] === 'gerenciador'){
-    echo "<script> window.location = './home/gerenciador.php'</script>";
-}else{
-    echo "<script> window.location = '../default.php'</script>";
-}
+    $user = [
+        'cod' => (isset($_POST['cod']) ? $_POST['cod'] : null), 
+        'senha' => (isset($_POST['senha']) ? $_POST['senha'] : null)
+    ];
+    session_start();
+    if($user['cod'] === 'aluno'){
+        $_SESSION['cod'] = $user['cod'];
+        echo "<script> window.location = './home/aluno.php'</script>";
+    }else if($user['cod'] === 'professor'){
+        $_SESSION['cod'] = $user['cod'];
+        echo "<script> window.location = './home/professor.php'</script>";
+    }else if($user['cod'] === 'gerenciador'){
+        $_SESSION['cod'] = $user['cod'];
+        echo "<script> window.location = './home/gerenciador.php'</script>";
+    }else{
+        echo "<script> window.location = '../default.php'</script>";
+    }
 
 ?>
