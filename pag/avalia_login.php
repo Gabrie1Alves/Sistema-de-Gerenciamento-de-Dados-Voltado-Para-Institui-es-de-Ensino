@@ -1,36 +1,27 @@
 <?php
-//Fazer as verificações como: é aluno, professor ou gerenciador?
-//confirmar a senha
-//autenticação
-//enviar para as próximas paginas os dados do user
+session_start();
+include_once '../conection/conect.php';
 
-/*
-Enviar os dados de ID + Login para as próximas paginas para 
-ter certeza que está logado.
-*/
+    $matricula = (isset($_POST['cod']) ? $_POST['cod'] : null);
+    $senha = (isset($_POST['senha']) ? $_POST['senha'] : null);
 
-/*SE ESTIVER INCORRETO REDIRECIONAR O USER PARA LOGIN*/
+    
+    $sql = "select matricula, tipo, nome, senha from usuario where matricula = $matricula";
+    $result = $conn->query($sql);
+    $_SESSION["usuario"] = $result->fetch_assoc();
 
+    if($_SESSION["usuario"]["senha"] != $senha){
+        echo "<script> window.location = '../default.php'</script>";
+    }else{
+        $_SESSION["usuario"]["senha"] = '**********';
+    }
 
-//envia para a próxima página
-//se for gerenciador por exemplo, envia para essa:
-// echo "<script> window.location = '../gerenciador/home.php'</script>"
-// echo "<script> window.location = '../aluno/home.php'</script>"
-// echo "<script> window.location = './home/aluno.php'</script>";
-
-    $user = [
-        'cod' => (isset($_POST['cod']) ? $_POST['cod'] : null), 
-        'senha' => (isset($_POST['senha']) ? $_POST['senha'] : null)
-    ];
-    session_start();
-    if($user['cod'] === 'aluno'){
-        $_SESSION['cod'] = $user['cod'];
+    
+    if($_SESSION["usuario"]["tipo"] == 'aluno'){
         echo "<script> window.location = './home/aluno.php'</script>";
-    }else if($user['cod'] === 'professor'){
-        $_SESSION['cod'] = $user['cod'];
+    }else if($_SESSION["usuario"]["tipo"] == 'professor'){
         echo "<script> window.location = './home/professor.php'</script>";
-    }else if($user['cod'] === 'gerenciador'){
-        $_SESSION['cod'] = $user['cod'];
+    }else if($_SESSION["usuario"]["tipo"] == 'gerenciador'){
         echo "<script> window.location = './home/gerenciador.php'</script>";
     }else{
         echo "<script> window.location = '../default.php'</script>";

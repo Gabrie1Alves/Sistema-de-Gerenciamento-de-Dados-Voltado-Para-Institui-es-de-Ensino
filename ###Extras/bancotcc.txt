@@ -1,0 +1,176 @@
+utilizador -> tccuser
+senha -> SWES132tccQW
+
+CREATE TABLE usuario (
+	matricula int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tipo varchar(15) NOT NULL,
+    senha varchar(20) NOT NULL,
+    nome varchar(60) NOT NULL,
+    entrada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE endereco(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    rua varchar(60) NOT NULL,
+    numero int NOT NULL,
+    complemento VARCHAR(60),
+    bairro varchar(60) NOT NULL,
+    cep varchar(9) NOT NULL,
+    cidade varchar(60) NOT NULL,
+    estado varchar(60) NOT NULL,
+    pais varchar(60) DEFAULT 'BRASIL',
+    CONSTRAINT usuario_endereco FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE contato(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    telefone varchar(12),
+    cel1 varchar(14) NOT NULL,
+    cel2 varchar(14),
+    email varchar(60) NOT NULL,
+    CONSTRAINT usuario_contato FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE aluno(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    turma varchar(20) NOT NULL,
+    mae varchar(60) NOT NULL,
+    pai varchar(60),
+    nascimento date NOT NULL,
+    rg varchar(13) NOT NULL,
+    CONSTRAINT usuario_aluno FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE responsavel(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    nome varchar(60) NOT NULL,
+    rg varchar(13) NOT NULL,
+    cpf varchar(14) NOT NULL,
+    telefone varchar(12) NOT NULL,
+    celular varchar(14) NOT NULL,
+    email varchar(60) NOT NULL,
+    CONSTRAINT usuario_responsavel FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE gerenciador(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    rg varchar(13) NOT NULL,
+    cpf varchar(14) NOT NULL,
+    nascimento date NOT NULL,
+    CONSTRAINT usuario_gerenciador FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE professor(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula int NOT NULL,
+    disciplica varchar(20) NOT NULL,
+    sigla_disciplina varchar(20) NOT NULL,
+    rg varchar(13) NOT NULL,
+    cpf varchar(14) NOT NULL,
+    atuacao varchar(60) NOT NULL,
+    nascimento date NOT NULL,
+    CONSTRAINT usuario_professor FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
+CREATE TABLE avisos(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula_p int NOT NULL,
+    turma varchar(60) NOT NULL,
+    titulo varchar(60) NOT NULL,
+    assunto varchar(200) NOT NULL,
+    _data date NOT NULL,
+    horario time,
+    CONSTRAINT professor_avisos FOREIGN KEY (matricula_p) REFERENCES professor(matricula)
+);
+
+CREATE TABLE atividades_avaliativas(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula_p int NOT NULL,
+    matricula_a int NOT NULL,
+    turma varchar(20) NOT NULL,
+    disciplina varchar(20) NOT NULL,
+    _data date NOT NULL,
+    valor float NOT NULL,
+    valor_obtido float DEFAULT 0,
+    titulo varchar(60) NOT NULL,
+    assunto varchar(200) NOT NULL,
+    horario time NOT NULL,
+    CONSTRAINT atividadeAvaliativa_p FOREIGN KEY (matricula_p) REFERENCES professor(matricula),
+    CONSTRAINT atividadeAvaliativa_a FOREIGN KEY (matricula_a) REFERENCES aluno(matricula)
+);
+
+CREATE TABLE notas_faltas(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula_p int NOT NULL,
+    matricula_a int NOT NULL,
+    turma varchar(20) NOT NULL,
+    disciplina varchar(20) NOT NULL,
+    nota float DEFAULT 0,
+    falta int DEFAULT 0,
+    CONSTRAINT notas_faltas_p FOREIGN KEY (matricula_p) REFERENCES professor(matricula),
+    CONSTRAINT notas_faltas_a FOREIGN KEY (matricula_a) REFERENCES aluno(matricula)
+);
+
+CREATE TABLE complemento(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    matricula_p int NOT NULL,
+    turma varchar(20) NOT NULL,
+    disciplina VARCHAR(20) NOT NULL,
+    titulo varchar(60) NOT NULL,
+    assunto varchar(200) NOT NULL,
+    arquivo varchar(100) NOT NULL,
+    CONSTRAINT complemento_professor FOREIGN KEY (matricula_p) REFERENCES professor(matricula)
+);
+
+CREATE TABLE grade(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    dia_d1_1 varchar(10) NOT NULL,
+    dia_d1_2 varchar(10) NOT NULL,
+    dia_d2_1 varchar(10) NOT NULL,
+    dia_d2_2 varchar(10) NOT NULL,
+    dia_d3_1 varchar(10) NOT NULL,
+    dia_d3_2 varchar(10) NOT NULL,
+    dia_d4_1 varchar(10),
+    dia_d4_2 varchar(10),
+    dia_d5_1 varchar(10),
+    dia_d5_2 varchar(10),
+    dia_d6_1 varchar(10),
+    dia_d6_2 varchar(10),
+    dia_d7_1 varchar(10),
+    dia_d7_2 varchar(10),
+    h_d1_1 time NOT NULL,
+    h_d1_2 time NOT NULL,
+    h_d2_1 time NOT NULL,
+    h_d2_2 time NOT NULL,
+    h_d3_1 time NOT NULL,
+    h_d3_2 time NOT NULL,
+    h_d4_1 time,
+    h_d4_2 time,
+    h_d5_1 time,
+    h_d5_2 time,
+    h_d6_1 time,
+    h_d6_2 time,
+    h_d7_1 time,
+    h_d7_2 time  
+);
+
+CREATE TABLE turma(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sigla varchar(10) NOT NULL,
+    nome varchar(20) NOT NULL,
+    ano date NOT NULL,
+    grade_id int NOT NULL,
+    disciplina_sigla1 varchar(20) NOT NULL,
+    disciplina_sigla2 varchar(20) NOT NULL,
+    disciplina_sigla3 varchar(20) NOT NULL,
+    disciplina_sigla4 varchar(20),
+    disciplina_sigla5 varchar(20),
+    disciplina_sigla6 varchar(20),
+    disciplina_sigla7 varchar(20),
+    CONSTRAINT turma_grade FOREIGN KEY (grade_id) REFERENCES grade(id)
+);

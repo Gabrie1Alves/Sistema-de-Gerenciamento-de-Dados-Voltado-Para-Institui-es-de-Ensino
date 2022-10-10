@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['cod'])){
+    if(!isset($_SESSION['usuario'])){
         header("location: http://localhost:8080/TCC_II");
     }  
 ?>
@@ -31,7 +31,7 @@
                 <button onclick="select_op_professor('aluno')" class="select">Aluno</button>
                 <button onclick="select_op_professor('professor')" class="select">Professor</button>
                 <button onclick="select_op_professor('disciplina')" class="select">Turma</button>
-                <button onclick="select_op_professor('horario')" class="select">Grade</button>
+                <!-- <button onclick="select_op_professor('horario')" class="select">Grade</button> -->
             </div>
             <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
                 <p>Cadastre um novo aluno aqui!</p>
@@ -172,28 +172,69 @@
                     <input class="input" name="disciplina6"> <br> 
                     Disciplina 7: <br>
                     <input class="input" name="disciplina7"> <br> 
-                    Disciplina 8: <br>
-                    <input class="input" name="disciplina8"> <br> 
-                    
+
+                    <p>Dia e horario das disciplinas</p>
+                    Dias de aula da disciplina 1 e horario: <br>
+                    <input class="input" name="dia_d1_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d1_1" type="time"> <br>
+                    <input class="input" name="dia_d1_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d1_2" type="time"> <br>
+
+                    Dias de aula da disciplina 2 e horario: <br>
+                    <input class="input" name="dia_d2_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d2_1" type="time"> <br>
+                    <input class="input" name="dia_d2_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d2_2" type="time"> <br>
+
+                    Dias de aula da disciplina 3 e horario: <br>
+                    <input class="input" name="dia_d3_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d3_1" type="time"> <br>
+                    <input class="input" name="dia_d3_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d3_2" type="time"> <br>
+
+                    Dias de aula da disciplina 4 e horario: <br>
+                    <input class="input" name="dia_d4_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d4_1" type="time"> <br>
+                    <input class="input" name="dia_d4_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d4_2" type="time"> <br>
+
+                    Dias de aula da disciplina 5 e horario: <br>
+                    <input class="input" name="dia_d5_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d5_1" type="time"> <br>
+                    <input class="input" name="dia_d5_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d5_2" type="time"> <br>
+
+                    Dias de aula da disciplina 6 e horario: <br>
+                    <input class="input" name="dia_d6_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d6_1" type="time"> <br>
+                    <input class="input" name="dia_d6_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d6_2" type="time"> <br>
+
+                    Dias de aula da disciplina 7 e horario: <br>
+                    <input class="input" name="dia_d7_1" placeholder="ex:segunda"> <br>
+                    <input class="input" name="h_d7_1" type="time"> <br>
+                    <input class="input" name="dia_d7_2" placeholder="ex:sexta"> <br>
+                    <input class="input" name="h_d7_2" type="time"> <br>
 
                     <button class="btn" type="submit">Submeter</button>
                 </div>
             </form>
 
-            <form id="horario" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
+            <!-- <form id="horario" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
                 <p>Cadastre uma nova grade aqui</p>
                 <div class="borda">
-                    <p>Informações do professor</p>
+                    <p>Informações da grade</p>
                     <input class="d-none" name="tipo" value="grade" required>
+
                     Nome: <br>
                     <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
-                    Sigla: <br>
+                    
+                    Dia da dis: <br>
                     <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
-                    Responsável: <br>
-                    <input class="input" name="entrada" placeholder="nome da atividade" required> <br>  
+                     
 
                 </div>
-            </form>
+            </form> -->
 
             
 

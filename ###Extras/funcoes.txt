@@ -1,0 +1,12 @@
+Gerenciador
+	cadastro, alteração, exclusão:
+		aluno, professor, disciplina, turma, grade-horario, 
+
+professor
+	atividades avaliativas, notas, faltas, mural de avisos, materiais 	complementares
+
+aluno
+	null
+
+
+primeiro cria a turma, depois coloca a turma nos dados dos alunos e depois

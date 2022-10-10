@@ -1,0 +1,21 @@
+sistema de armazenamento e gerenciamento de notas e historico escolar de alunos de uma escola.
+Armazenar e gerenciar todas as iformações academicas de todos os alunos de diversos anos.
+sistema de busca de histórico etc
+Sistema de armazenamento e gerenciamento de informações academicas
+
+
+Sistema para gerenciar alunos, professores, disciplinas, turmas
+
+Sistema para gerenciar notas e faltas de alunos
+
+Sistema de mural para avisos dos professores
+
+Sistemas de armazenamento de materiais da disciplina
+
+Configurar conta
+
+Horário de aula
+
+MINIFICAR CSS E JS
+
+

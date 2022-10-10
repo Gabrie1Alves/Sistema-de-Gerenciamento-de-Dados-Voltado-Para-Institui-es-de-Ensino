@@ -8,10 +8,11 @@ function select_op_professor(op){
     }else if(op === 'disciplina'){
         $('#aluno, #professor, #horario').addClass('d-none');
         $('#disciplina').removeClass('d-none');
-    }else if(op === 'horario'){
-        $('#aluno, #professor, #disciplina').addClass('d-none');
-        $('#horario').removeClass('d-none');
     }
+    // else if(op === 'horario'){
+    //     $('#aluno, #professor, #disciplina').addClass('d-none');
+    //     $('#horario').removeClass('d-none');
+    // }
 }
 
 function teste(){
@@ -23,7 +24,8 @@ function teste(){
         $('#texto-select').text("CPF do professor:");
     }else if(op === 'disciplina'){
         $('#texto-select').text("Nome da dsiciplina:");
-    }else if(op === 'turma'){
-        $('#texto-select').text("Nome da turma:");
     }
+    // else if(op === 'turma'){
+    //     $('#texto-select').text("Nome da turma:");
+    // }
 }

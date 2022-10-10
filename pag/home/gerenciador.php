@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['cod'])){
+    if(!isset($_SESSION["usuario"])){
         header("location: http://localhost:8080/TCC_II");
     }  
 ?>
@@ -18,7 +18,7 @@
 
         <div class="container">
             <div class="apresentacao_home">
-                Olá {{nome}}, bem vindo ao painel do Gerenciador! A seguir, estão todas as ações que você pode executar!
+                Olá <?php echo $_SESSION["usuario"]["nome"];?>, bem vindo ao painel do Gerenciador! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
                 <a href="../gerenciador/cadastro.php">
