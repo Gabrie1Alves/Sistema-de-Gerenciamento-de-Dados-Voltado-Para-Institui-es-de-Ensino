@@ -7,8 +7,11 @@ include_once '../conection/conect.php';
 
     
     $sql = "select matricula, tipo, nome, senha from usuario where matricula = $matricula";
-    $result = $conn->query($sql);
-    $_SESSION["usuario"] = $result->fetch_assoc();
+    if($result = $conn->query($sql) ){
+        $_SESSION["usuario"] = $result->fetch_assoc();
+    }else{
+        echo "<script> window.location = '../default.php'</script>";
+    }
 
     if($_SESSION["usuario"]["senha"] != $senha){
         echo "<script> window.location = '../default.php'</script>";

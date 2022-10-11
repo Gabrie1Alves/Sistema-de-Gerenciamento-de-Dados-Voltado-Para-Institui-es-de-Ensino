@@ -44,7 +44,7 @@
             </div> -->
             <?php if($alterar == 'a'):?>
                 <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
-                    <p>Alterar informações do aluno:</p>
+                    <p>Deseja esxcluir esse cadastro?</p>
                     <div class="borda">
 
                         <p>Informações do aluno</p>
@@ -100,13 +100,13 @@
                         País: <br>
                         <input class="input" name="pais" required> <br>
 
-                        <button class="btn" type="submit">Submeter</button>
+                        <button class="btn" type="submit">Excluir</button>
                     </div>
                 </form>
             
             <?php elseif($alterar == 'p'): ?>
                 <form id="professor" enctype = "multipart/form-data" form action="" method="POST">
-                    <p>Altere as informações do professor aqui:</p>
+                    <p>Deseja esxcluir esse cadastro?</p>
                     <div class="borda">
                         <p>Informações do professor</p>
                         <input class="d-none" name="tipo" value="professor" required>
@@ -153,12 +153,12 @@
                         País: <br>
                         <input class="input" name="pais" required> <br>
 
-                        <button class="btn" type="submit">Submeter</button>
+                        <button class="btn" type="submit">Excluir</button>
                     </div>
                 </form>
             <?php elseif($alterar == 't'):?>
                 <form id="disciplina" enctype = "multipart/form-data" form action="" method="POST">
-                    <p>Altere as informações da turma aqui:</p>
+                    <p>Deseja esxcluir esse cadastro?</p>
                     <div class="borda">
                         <p>Informações da turma</p>
                         <input class="d-none" name="tipo"  value="turma" required>
@@ -227,7 +227,7 @@
                         <input class="input" name="dia_d7_2" placeholder="ex:sexta"> <br>
                         <input class="input" name="h_d7_2" type="time"> <br>
 
-                        <button class="btn" type="submit">Alterar</button>
+                        <button class="btn" type="submit">Excluir</button>
                     </div>
                 </form>
             <?php endif;?>

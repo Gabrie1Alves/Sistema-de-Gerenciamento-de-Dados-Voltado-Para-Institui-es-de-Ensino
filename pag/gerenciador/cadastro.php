@@ -216,7 +216,7 @@
                     <input class="input" name="dia_d7_2" placeholder="ex:sexta"> <br>
                     <input class="input" name="h_d7_2" type="time"> <br>
 
-                    <button class="btn" type="submit">Submeter</button>
+                    <button class="btn" type="submit">Cadastrar</button>
                 </div>
             </form>
 

@@ -27,15 +27,15 @@
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="../gerenciador/alterar.php">
+                <a href="../gerenciador/select-alterar.php">
                     <div class="op">
                         Alterar
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
-                <a href="">
+                <a href="../gerenciador/select-excluir.php">
                     <div class="op">
-                        Cadastrar professor
+                        Excluir
                         <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
                     </div>
                 </a>
