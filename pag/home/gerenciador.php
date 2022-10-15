@@ -24,55 +24,25 @@
                 <a href="../gerenciador/cadastro.php">
                     <div class="op">
                         Cadastrar
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        <span class="op_explicacao">Realizar cadastro de alunos, professores e turmas.</span>
                     </div>
                 </a>
                 <a href="../gerenciador/select-alterar.php">
                     <div class="op">
                         Alterar
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        <span class="op_explicacao">Alterar cadastro de alunos, professores e turmas.</span>
                     </div>
                 </a>
                 <a href="../gerenciador/select-excluir.php">
                     <div class="op">
                         Excluir
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        <span class="op_explicacao">Excluir cadastro de alunos, professores e turmas.</span>
                     </div>
                 </a>
                 <a href="">
                     <div class="op">
-                        Cadastrar disciplina
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Cadastrar horário de aula
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Alterar cadastro de aluno
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Alterar cadastro de professor
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Alterar cadastro de disciplina
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="op">
-                        Alterar horário de aula
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        Gerenciador
+                        <span class="op_explicacao">Adicionar um novo gerenciador</span>
                     </div>
                 </a>
                 

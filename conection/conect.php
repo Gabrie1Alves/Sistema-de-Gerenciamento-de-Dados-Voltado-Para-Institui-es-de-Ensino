@@ -1,8 +1,8 @@
 <?php 
     $servidor="localhost";
     $dbname="tccii";
-    $dbusuario = "tccuser";
-    $dbsenha = "SWES132tccQW";
+    $dbusuario = "usuariotcc";
+    $dbsenha = "123qwe234";
 
     $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
 

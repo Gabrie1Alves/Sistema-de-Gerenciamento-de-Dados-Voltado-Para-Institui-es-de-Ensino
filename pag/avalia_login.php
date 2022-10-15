@@ -5,7 +5,6 @@ include_once '../conection/conect.php';
     $matricula = (isset($_POST['cod']) ? $_POST['cod'] : null);
     $senha = (isset($_POST['senha']) ? $_POST['senha'] : null);
 
-    
     $sql = "select matricula, tipo, nome, senha from usuario where matricula = $matricula";
     if($result = $conn->query($sql) ){
         $_SESSION["usuario"] = $result->fetch_assoc();

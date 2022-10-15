@@ -27,12 +27,6 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <div class="selecao">
-                <button onclick="select_op_professor('aluno')" class="select">Aluno</button>
-                <button onclick="select_op_professor('professor')" class="select">Professor</button>
-                <button onclick="select_op_professor('disciplina')" class="select">Turma</button>
-                <!-- <button onclick="select_op_professor('horario')" class="select">Grade</button> -->
-            </div>
                 <p>Exclua cadastros aqui!!</p>
                 <form enctype = "multipart/form-data" form action="./excluir.php" method="POST">
                     <div class="formTurma">
@@ -51,7 +45,7 @@
                             <input name="info">
                         </div>
                         <div id="t" class="d-none">
-                            <p>Nome da turma:</p>
+                            <p>Sigla da turma:</p>
                             <input name="info">
                         </div>
                         <br>
