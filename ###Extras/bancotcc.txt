@@ -127,8 +127,19 @@ CREATE TABLE complemento(
     CONSTRAINT complemento_professor FOREIGN KEY (matricula_p) REFERENCES professor(matricula)
 );
 
-CREATE TABLE grade(
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE turma(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sigla varchar(10) NOT NULL,
+    nome varchar(20) NOT NULL,
+    ano date NOT NULL,
+    grade_id int NOT NULL,
+    disciplina_sigla1 varchar(20) NOT NULL,
+    disciplina_sigla2 varchar(20) NOT NULL,
+    disciplina_sigla3 varchar(20) NOT NULL,
+    disciplina_sigla4 varchar(20),
+    disciplina_sigla5 varchar(20),
+    disciplina_sigla6 varchar(20),
+    disciplina_sigla7 varchar(20),
     dia_d1_1 varchar(10) NOT NULL,
     dia_d1_2 varchar(10) NOT NULL,
     dia_d2_1 varchar(10) NOT NULL,
