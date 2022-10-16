@@ -33,7 +33,7 @@
                 <button onclick="select_op_professor('disciplina')" class="select">Turma</button>
                 <!-- <button onclick="select_op_professor('horario')" class="select">Grade</button> -->
             </div>
-            <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
+            <form id="aluno" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
                 <p>Cadastre um novo aluno aqui!</p>
                 <div class="borda">
 
@@ -94,7 +94,7 @@
                 </div>
             </form>
 
-            <form id="professor" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
+            <form id="professor" class="d-none" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
                 <p>Cadastre um novo professor aqui!</p>
                 <div class="borda">
                     <p>Informações do professor</p>
@@ -102,7 +102,7 @@
                     Nome: <br>
                     <input class="input" name="nome" required> <br>    
                     Disciplina: <br>
-                    <input class="input" name="atuacao" placeholder="ex: português" required> <br>  
+                    <input class="input" name="disciplina" placeholder="ex: português" required> <br>  
                     Sigla da disciplina: <br>
                     <input class="input" name="sigla_discplina" placeholder="nome da atividade" required> <br>  
                     RG: <br>
@@ -110,7 +110,7 @@
                     CPF: <br>
                     <input class="input" name="cpf" placeholder="ex: 111.111.111-11" required> <br>  
                     Área de atuação: <br>
-                    <input class="input" name="area_atuacao" placeholder="ex: exatas" required> <br>  
+                    <input class="input" name="atuacao" placeholder="ex: exatas" required> <br>  
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" type="date" placeholder="nome da atividade" required> <br>  
 
@@ -118,9 +118,9 @@
                     Telefone: <br>
                     <input class="input" name="tel" placeholder="ex: 11 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="celp" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
                     Celular(2): <br>
-                    <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111"> <br>
                     E-mail: <br>
                     <input class="input" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
@@ -146,7 +146,7 @@
                 </div>
             </form>
 
-            <form id="disciplina" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
+            <form id="disciplina" class="d-none" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
                 <p>Cadastre uma nova turma aqui</p>
                 <div class="borda">
                     <p>Informações da turma</p>
@@ -219,22 +219,6 @@
                     <button class="btn" type="submit">Cadastrar</button>
                 </div>
             </form>
-
-            <!-- <form id="horario" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
-                <p>Cadastre uma nova grade aqui</p>
-                <div class="borda">
-                    <p>Informações da grade</p>
-                    <input class="d-none" name="tipo" value="grade" required>
-
-                    Nome: <br>
-                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
-                    
-                    Dia da dis: <br>
-                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
-                     
-
-                </div>
-            </form> -->
 
             
 

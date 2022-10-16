@@ -57,21 +57,21 @@ CREATE TABLE professor(
     rg varchar(13) NOT NULL,
     cpf varchar(14) NOT NULL,
     atuacao varchar(100) NOT NULL,
-    nascimento date NOT NULL,
+    nascimento varchar(10) NOT NULL,
     CONSTRAINT usuario_professor FOREIGN KEY (matricula) REFERENCES usuario(matricula)
 );
 
 CREATE TABLE turma(
 	sigla varchar(20) NOT NULL PRIMARY KEY,
     nome varchar(20) NOT NULL,
-    ano date NOT NULL
+    ano varchar(10) NOT NULL
 );
 
 CREATE TABLE atividades_avaliativas(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     sigla_turma varchar(20) NOT NULL,
     sigla_disc varchar(20) NOT NULL,
-    data date NOT NULL,
+    data varchar(10) NOT NULL,
     horario varchar(10) NOT NULL,
     titulo varchar(60) NOT NULL,
     resumo varchar(200) NOT NULL,
@@ -86,8 +86,8 @@ CREATE TABLE aluno(
     turma varchar(20) NOT NULL,
     mae varchar(60) NOT NULL,
     pai varchar(60),
-    nascimento date NOT NULL,
-    rg varchar(13) NOT NULL,
+    nascimento varchar(10) NOT NULL,
+    rg varchar(13) NOT NULL UNIQUE,
     CONSTRAINT usuario_aluno FOREIGN KEY (matricula) REFERENCES usuario(matricula)
 );
 
@@ -172,8 +172,8 @@ CREATE TABLE responsavel(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     matricula int NOT NULL,
     nome varchar(60) NOT NULL,
-    rg varchar(13) NOT NULL,
-    cpf varchar(14) NOT NULL,
+    rg varchar(13) NOT NULL UNIQUE,
+    cpf varchar(14) NOT NULL UNIQUE,
     telefone varchar(12),
     celular varchar(14) NOT NULL,
     email varchar(60) NOT NULL,
@@ -183,9 +183,9 @@ CREATE TABLE responsavel(
 CREATE TABLE gerenciador(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     matricula int NOT NULL,
-    rg varchar(13) NOT NULL,
-    cpf varchar(14) NOT NULL,
-    nascimento date NOT NULL,
+    rg varchar(13) NOT NULL UNIQUE,
+    cpf varchar(14) NOT NULL UNIQUE,
+    nascimento varchar(10) NOT NULL,
     CONSTRAINT usuario_gerenciador FOREIGN KEY (matricula) REFERENCES usuario(matricula)
 );
 
