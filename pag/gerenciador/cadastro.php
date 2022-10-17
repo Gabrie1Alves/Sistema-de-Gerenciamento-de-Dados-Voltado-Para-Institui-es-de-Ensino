@@ -153,50 +153,50 @@
                     <input class="d-none" name="tipo"  value="turma" required>
 
                     Nome da turma: <br>
-                    <input class="input" name="nome" placeholder="nome da atividade" required> <br>    
+                    <input class="input" name="nome" placeholder="nome da turma" required> <br>    
                     Sigla da turma: <br>
-                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br>  
-                    Grade da turma: <br>
-                    <input class="input" name="atuacao" placeholder="nome da atividade" placeholder="Exatas" required> <br> 
-                    Disciplina 1: <br>
+                    <input class="input" name="sigla" placeholder="nome da turma" required> <br>  
+                    Ano de criação: <br>
+                    <input class="input" name="ano" type="date" required> <br> 
+                    Sigla disciplina 1: <br>
                     <input class="input" name="disciplina1" required> <br> 
-                    Disciplina 2: <br>
+                    Sigla disciplina 2: <br>
                     <input class="input" name="disciplina2" required> <br> 
-                    Disciplina 3: <br>
+                    Sigla disciplina 3: <br>
                     <input class="input" name="disciplina3" required> <br> 
-                    Disciplina 4: <br>
+                    Sigla disciplina 4: <br>
                     <input class="input" name="disciplina4" required> <br> 
-                    Disciplina 5: <br>
+                    Sigla disciplina 5: <br>
                     <input class="input" name="disciplina5"> <br> 
-                    Disciplina 6: <br>
+                    Sigla disciplina 6: <br>
                     <input class="input" name="disciplina6"> <br> 
-                    Disciplina 7: <br>
+                    Sigla disciplina 7: <br>
                     <input class="input" name="disciplina7"> <br> 
 
                     <p>Dia e horario das disciplinas</p>
                     Dias de aula da disciplina 1 e horario: <br>
-                    <input class="input" name="dia_d1_1" placeholder="ex:segunda"> <br>
-                    <input class="input" name="h_d1_1" type="time"> <br>
-                    <input class="input" name="dia_d1_2" placeholder="ex:sexta"> <br>
-                    <input class="input" name="h_d1_2" type="time"> <br>
+                    <input required class="input" name="dia_d1_1" placeholder="ex:segunda"> <br>
+                    <input required class="input" name="h_d1_1" type="time"> <br>
+                    <input required class="input" name="dia_d1_2" placeholder="ex:sexta"> <br>
+                    <input required class="input" name="h_d1_2" type="time"> <br>
 
                     Dias de aula da disciplina 2 e horario: <br>
-                    <input class="input" name="dia_d2_1" placeholder="ex:segunda"> <br>
-                    <input class="input" name="h_d2_1" type="time"> <br>
-                    <input class="input" name="dia_d2_2" placeholder="ex:sexta"> <br>
-                    <input class="input" name="h_d2_2" type="time"> <br>
+                    <input required class="input" name="dia_d2_1" placeholder="ex:segunda"> <br>
+                    <input required class="input" name="h_d2_1" type="time"> <br>
+                    <input required class="input" name="dia_d2_2" placeholder="ex:sexta"> <br>
+                    <input required class="input" name="h_d2_2" type="time"> <br>
 
                     Dias de aula da disciplina 3 e horario: <br>
-                    <input class="input" name="dia_d3_1" placeholder="ex:segunda"> <br>
-                    <input class="input" name="h_d3_1" type="time"> <br>
-                    <input class="input" name="dia_d3_2" placeholder="ex:sexta"> <br>
-                    <input class="input" name="h_d3_2" type="time"> <br>
+                    <input required class="input" name="dia_d3_1" placeholder="ex:segunda"> <br>
+                    <input required class="input" name="h_d3_1" type="time"> <br>
+                    <input required class="input" name="dia_d3_2" placeholder="ex:sexta"> <br>
+                    <input required class="input" name="h_d3_2" type="time"> <br>
 
                     Dias de aula da disciplina 4 e horario: <br>
-                    <input class="input" name="dia_d4_1" placeholder="ex:segunda"> <br>
-                    <input class="input" name="h_d4_1" type="time"> <br>
-                    <input class="input" name="dia_d4_2" placeholder="ex:sexta"> <br>
-                    <input class="input" name="h_d4_2" type="time"> <br>
+                    <input required class="input" name="dia_d4_1" placeholder="ex:segunda"> <br>
+                    <input required class="input" name="h_d4_1" type="time"> <br>
+                    <input required class="input" name="dia_d4_2" placeholder="ex:sexta"> <br>
+                    <input required class="input" name="h_d4_2" type="time"> <br>
 
                     Dias de aula da disciplina 5 e horario: <br>
                     <input class="input" name="dia_d5_1" placeholder="ex:segunda"> <br>

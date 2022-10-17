@@ -1,6 +1,6 @@
 <?php
-session_start();
-include_once '../conection/conect.php';
+    session_start();
+    include_once '../conection/conect.php';
 
     $matricula = (isset($_POST['cod']) ? $_POST['cod'] : null);
     $senha = (isset($_POST['senha']) ? $_POST['senha'] : null);
