@@ -11,6 +11,7 @@
 
     if($tipo == 'professor' || $tipo == 'aluno'){
         $senha = '123qwe';
+        $nome = (isset($_POST['nome']) ? $_POST['nome'] : null);
         
         // Pega as infos de contato
         $info = [
@@ -33,31 +34,68 @@
         ];
 
         // Cadastra usuário (PADRÃO)
-        $sql_user = "INSERT INTO usuario(tipo, senha, nome) VALUES ('$tipo', '$senha', '$usuario[0]');";
+        $sql_user = "INSERT INTO usuario(tipo, senha, nome) VALUES ('$tipo', '$senha', '$nome');";
         if(!mysqli_query($conn, $sql_user)){
             echo "ERRO NO CADASTRO DE USUÁRIO!";
             echo "Alguma coisa deu errado no banco :O";
         }
+        // BUSCA MATRICULA DO USUARIO CADASTRADO
+        $sql_mat = "SELECT MAX(matricula) from usuario where tipo = '$tipo'";
+        $mat = mysqli_query($conn, $sql_mat);
+        $mat = $mat->fetch_assoc();
+        $mat = $mat['MAX(matricula)'];
 
         // Cadastra endereço (PADRÃO)
         $sql_endereco = "INSERT INTO endereco(matricula, rua, numero, complemento, bairro, cep, cidade, estado, pais) 
                             VALUES ('$mat', '$endereco[0]','$endereco[1]','$endereco[2]','$endereco[3]','$endereco[4]','$endereco[5]','$endereco[6]','$endereco[7]')";
-            if(!mysqli_query($conn, $sql_endereco)){
-                echo "ERRO NO CADASTRO DE ENDEREÇO!";
-                echo "Alguma coisa deu errado no banco :O";
-            }   
+        if(!mysqli_query($conn, $sql_endereco)){
+            echo "ERRO NO CADASTRO DE ENDEREÇO!";
+            echo "Alguma coisa deu errado no banco :O";
+        }   
 
-            // Cadastra contato (PADRÃO)
-            $sql_info = "INSERT INTO contato(matricula, telefone, cel1, cel2, email) VALUES ('$mat', '$info[0]','$info[1]','$info[2]','$info[3]')";
-            if(!mysqli_query($conn, $sql_info)){
-                echo "ERRO NO CADASTRO DE CONTATOS!";
-                echo "Alguma coisa deu errado no banco :O";
+        // Cadastra contato (PADRÃO)
+        $sql_info = "INSERT INTO contato(matricula, telefone, cel1, cel2, email) VALUES ('$mat', '$info[0]','$info[1]','$info[2]','$info[3]')";
+        if(!mysqli_query($conn, $sql_info)){
+            echo "ERRO NO CADASTRO DE CONTATOS!";
+            echo "Alguma coisa deu errado no banco :O";
         }
 
-    }
+    }   
    
 
     if($tipo == 'aluno'){
+        $usuario = [
+            0 => (isset($_POST['turma']) ? $_POST['turma'] : null),
+            1 => (isset($_POST['mae']) ? $_POST['mae'] : null),
+            2 => (isset($_POST['pai']) ? $_POST['pai'] : null),
+            3 => (isset($_POST['nascimento']) ? $_POST['nascimento'] : null),
+            4 => (isset($_POST['rg']) ? $_POST['rg'] : null)
+        ];      
+        
+        //CADASTRA ALUNO
+        $sql_prof = "INSERT INTO aluno(matricula, turma, mae, pai, nascimento, rg) 
+                    VALUES ('$mat', '$usuario[0]','$usuario[1]','$usuario[2]','$usuario[3]','$usuario[4]')";
+        if(!mysqli_query($conn, $sql_prof)){
+            echo "ERRO NO CADASTRO DE ALUNO!";
+            echo "Alguma coisa deu errado no banco :O";
+        }
+
+        $responsavel = [
+            0 => (isset($_POST['nome_resp']) ? $_POST['nome_resp'] : null),
+            1 => (isset($_POST['rg_resp']) ? $_POST['rg_resp'] : null),
+            2 => (isset($_POST['cpf_resp']) ? $_POST['cpf_resp'] : null),
+            3 => (isset($_POST['tel_resp']) ? $_POST['tel_resp'] : null),
+            4 => (isset($_POST['cel_resp']) ? $_POST['cel_resp'] : null),
+            5 => (isset($_POST['email_resp']) ? $_POST['email_resp'] : null)
+        ]; 
+
+        //CADASTRA RESPONSAVEL
+        $sql_prof = "INSERT INTO responsavel(matricula, nome, rg, cpf, telefone, celular, email) 
+                    VALUES ('$mat', '$responsavel[0]','$responsavel[1]','$responsavel[2]','$responsavel[3]','$responsavel[4]','$responsavel[5]')";
+        if(!mysqli_query($conn, $sql_prof)){
+            echo "ERRO NO CADASTRO DE RESPONSAVEL!";
+            echo "Alguma coisa deu errado no banco :O";
+        }
 
     }else if($tipo == 'professor'){
         $usuario = [
@@ -69,12 +107,6 @@
             5 => (isset($_POST['atuacao']) ? $_POST['atuacao'] : null),
             6 => (isset($_POST['nascimento']) ? $_POST['nascimento'] : null)
         ];
-
-        // BUSCA MATRICULA DO PROFESSOR CADASTRADO
-        $sql_mat = "SELECT MAX(matricula) from usuario where tipo = 'professor'";
-        $mat = mysqli_query($conn, $sql_mat);
-        $mat = $mat->fetch_assoc();
-        $mat = $mat['MAX(matricula)'];
 
         //CADASTRA PROFESSOR
         $sql_prof = "INSERT INTO professor(matricula, disciplica, sigla_disc, rg, cpf, atuacao, nascimento) 
@@ -115,14 +147,15 @@
         }
         
         //Cadastra turma
-        $sql_turma = "INSERT INTO  turma (sigla, nome, ano) VALUES ('$turma[1]','$turma[0]','$turma[2]')";
+        $sql_turma = "INSERT INTO  turma (sigla, nome, ano) VALUES ('$turma[1]','$turma[0]','')";
         if(!mysqli_query($conn, $sql_turma)){
             echo "ERRO NO CADASTRO DE TURMA!";
             echo "Alguma coisa deu errado no banco :O";
         }
 
         //Cadastra turma_disciplinas
-        $sql_turma_disciplinas = "INSERT INTO  turma_disciplina (sigla_turma, sigla_disc_1, sigla_disc_2, sigla_disc_3, sigla_disc_4, sigla_disc_5, sigla_disc_6, sigla_disc_7,
+        $sql_turma_disciplinas = "INSERT INTO  turma_disciplinas(sigla_turma, disciplina_sigla1, disciplina_sigla2, disciplina_sigla3,
+            disciplina_sigla4, disciplina_sigla5, disciplina_sigla6, disciplina_sigla7,
             dia_d1_1,dia_d1_2,dia_d2_1,dia_d2_2,dia_d3_1,dia_d3_2,dia_d4_1,dia_d4_2,dia_d5_1,dia_d5_2,dia_d6_1,dia_d6_2,dia_d7_1,dia_d7_2,
             h_d1_1,h_d1_2,h_d2_1,h_d2_2,h_d3_1,h_d3_2,h_d4_1,h_d4_2,h_d5_1,h_d5_2,h_d6_1,h_d6_2,h_d7_1,h_d7_2) 
         VALUES ('$turma[1]','$disciplinas[0]','$disciplinas[1]','$disciplinas[2]','$disciplinas[3]','$disciplinas[4]','$disciplinas[5]','$disciplinas[6]',
@@ -132,18 +165,5 @@
             echo "ERRO NO CADASTRO DE DISCIPLINAS DA TURMA!";
             echo "Alguma coisa deu errado no banco :O";
         }
-
-        /*
-        $sql_prof = "INSERT INTO professor(matricula, disciplica, sigla_disc, rg, cpf, atuacao, nascimento) 
-                    VALUES ('$mat', '$usuario[1]','$usuario[2]','$usuario[3]','$usuario[4]','$usuario[5]','$usuario[6]')";
-        if(!mysqli_query($conn, $sql_prof)){
-            echo "ERRO NO CADASTRO DE PROFESSOR!";
-            echo "Alguma coisa deu errado no banco :O";
-        }*/
-
-        echo '<pre>';
-        print_r($dia);
-        print_r($hora);
-        die;
     }
 ?>

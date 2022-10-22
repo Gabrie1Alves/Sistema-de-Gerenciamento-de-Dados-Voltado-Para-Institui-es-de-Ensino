@@ -42,8 +42,6 @@
                     <input class="d-none" name="tipo"  value="aluno" required>
                     Nome do aluno: <br>
                     <input class="input" name="nome"  placeholder="Nome completo" required> <br>    
-                    Data de entrada: <br>
-                    <input class="input" name="entrada" required type="date"> <br>
                     Nome do pai: <br>
                     <input class="input" name="pai"> <br> 
                     Nome da mãe: <br>
@@ -52,6 +50,16 @@
                     <input class="input" name="rg" placeholder="ex: xx-11.111.111" required> <br> 
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" required type="date"> <br>
+                    
+
+                    Telefone: <br>
+                    <input class="input" name="tel" placeholder="ex: 11 1111-1111"> <br>
+                    Celular: <br>
+                    <input class="input" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
+                    Celularl(2): <br>
+                    <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111"> <br>
+                    E-mail: <br>
+                    <input class="input" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
                     Turma: <br>
                     <input class="input" name="turma" required> <br>
 
@@ -67,8 +75,6 @@
                     <input class="input" name="tel_resp" placeholder="ex: 11 1111-1111"> <br>
                     Celular do responsável: <br>
                     <input class="input" name="cel_resp" placeholder="ex: 11 1 1111-1111" required> <br>
-                    Celular do responsável(2): <br>
-                    <input class="input" name="cel_resp2" placeholder="ex: 11 1 1111-1111" required> <br>
                     E-mail do responsável: <br>
                     <input class="input" name="email_resp" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
