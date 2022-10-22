@@ -39,10 +39,10 @@
                         <span class="op_explicacao">Excluir cadastro de alunos, professores e turmas.</span>
                     </div>
                 </a>
-                <a href="">
+                <a href="" class="d-none">
                     <div class="op">
                         Gerenciador
-                        <span class="op_explicacao">Adicionar um novo gerenciador</span>
+                        <span class="op_explicacao">Adicionar, alterar ou excluir um gerenciador</span>
                     </div>
                 </a>
                 

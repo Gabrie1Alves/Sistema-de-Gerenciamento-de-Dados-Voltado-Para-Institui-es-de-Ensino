@@ -19,15 +19,10 @@ function selectTurma(){
     var op = $("#turma option:selected").val();
     console.log(op);
     if(op == 'a'){
-        $('#p, #t').addClass('d-none');
-        $('#a').removeClass('d-none');
+        $('#texto-info-excluir').text("Matricula do aluno:");
     }else if (op == 'p'){
-        $('#a, #t').addClass('d-none');
-        $('#p').removeClass('d-none');
-    }else if(op == 't'){
-        $('#p, #a').addClass('d-none');
-        $('#t').removeClass('d-none');
-    }    
+        $('#texto-info-excluir').text("Matricula do professor:");
+    }  
 }
 
 function teste(){

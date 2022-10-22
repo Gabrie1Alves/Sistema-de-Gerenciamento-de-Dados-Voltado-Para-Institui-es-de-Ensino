@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['usuario'])){
-        header("location: http://localhost:8080/TCC_II");
+        header("location: http://localhost/tcc");
     }  
 ?>
 <!DOCTYPE HTML>
@@ -34,19 +34,10 @@
                         <select onclick="selectTurma()" name="turma" id="turma">
                             <option value="a">Aluno</option>
                             <option value="p">Professor</option>
-                            <option value="t">Turma</option>
                         </select>
-                        <div id="a" class="d-none">
-                            <p>Matricula do aluno:</p>
-                            <input name="info">
-                        </div>
-                        <div id="p" class="d-none">
-                            <p>Matricula do professor:</p>
-                            <input name="info">
-                        </div>
-                        <div id="t" class="d-none">
-                            <p>Sigla da turma:</p>
-                            <input name="info">
+                        <div id="a">
+                            <p id="texto-info-excluir">Matricula do aluno:</p>
+                            <input name="info" required>
                         </div>
                         <br>
                         <button class="btn" type="submit">Continuar</button>
