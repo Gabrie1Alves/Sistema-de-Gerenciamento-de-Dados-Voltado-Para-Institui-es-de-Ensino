@@ -189,6 +189,16 @@ CREATE TABLE gerenciador(
     CONSTRAINT usuario_gerenciador FOREIGN KEY (matricula) REFERENCES usuario(matricula)
 );
 
+CREATE TABLE turma_material(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sigla_turma varchar(20) NOT NULL,
+    sigla_disc varchar(20) NOT NULL,
+    titulo varchar(60) NOT NULL,
+    informacao varchar(300) NOT NULL,
+    material int,
+    CONSTRAINT usuario_gerenciador FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+);
+
 
 
 

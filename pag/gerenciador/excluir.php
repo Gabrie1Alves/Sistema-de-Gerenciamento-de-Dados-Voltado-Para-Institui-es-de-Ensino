@@ -31,7 +31,9 @@
             $dados = mysqli_query($conn, $sql);
             $user = $dados->fetch_assoc();
         }else{//professor
-    
+            $sql = "SELECT disciplica, sigla_disc, rg, cpf, atuacao, nascimento from professor where matricula = '$matricula'";
+            $dados = mysqli_query($conn, $sql);
+            $user = $dados->fetch_assoc();
         }
     }
 ?>
@@ -65,13 +67,13 @@
                 <button onclick="select_op_professor('horario')" class="select">Grade</button>
             </div> -->
             <?php if($existe == false):?>
-
+                <?php echo "MATRICULA INEXISTENTE!"?>
             <?php elseif($alterar == 'a'):?>
                 <form enctype = "multipart/form-data" action="./_exclusao.php" method="POST">
-                    <p>Deseja esxcluir esse cadastro?</p>
+                    <p>Deseja excluir esse cadastro?</p>
                     <div class="borda">
                         <!-- rg, nascimento, turma, mae, pai-->
-                        <p>Informações do aluno</p>
+                        <p>Informações do aluno:</p>
                         <h4>Nome: <?= $nome['nome']?></h4>
                         <h4>Entrada: <?= $nome['entrada']?></h4>
                         <h4>Matrícula: <?= $matricula?></h4>
@@ -85,7 +87,25 @@
                     </div>
                 </form>
                 <?php elseif($alterar == 'p'):?>
-
+                    <form enctype = "multipart/form-data" action="./_exclusao.php" method="POST">
+                    <p>Deseja excluir esse cadastro?</p>
+                    <div class="borda">
+                        <!-- disciplica, sigla_disc, rg, cpf, atuacao, nascimento-->
+                        <p>Informações do Professor</p>
+                        <h4>Nome: <?= $nome['nome']?></h4>
+                        <h4>Entrada: <?= $nome['entrada']?></h4>
+                        <h4>Matrícula: <?= $matricula?></h4>
+                        <h4>Disciplina: <?= $user['disciplica']?></h4>
+                        <h4>Sigla da disciplina: <?= $user['sigla_disc']?></h4>
+                        <h4>RG: <?= $user['rg']?></h4>
+                        <h4>CPF: <?= $user['cpf']?></h4>   
+                        <h4>Área de atuação: <?= $user['atuacao']?></h4>
+                        <h4>Nascimento: <?= $user['nascimento']?></h4>
+                        <input class="d-none" type="text" name="matricula" value="<?= $matricula?>">
+                        <input class="d-none" type="text" name="tipo" value="professor">
+                        <button class="btn" type="submit">Excluir</button>               
+                    </div>
+                </form>
                 <?php endif;?>
             <!-- <form id="horario" class="d-none" enctype = "multipart/form-data" form action="" method="POST">
                 <p>Cadastre uma nova grade aqui</p>
