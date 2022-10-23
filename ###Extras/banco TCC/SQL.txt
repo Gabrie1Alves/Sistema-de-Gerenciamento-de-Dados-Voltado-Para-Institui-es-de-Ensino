@@ -195,8 +195,9 @@ CREATE TABLE turma_material(
     sigla_disc varchar(20) NOT NULL,
     titulo varchar(60) NOT NULL,
     informacao varchar(300) NOT NULL,
-    material int,
-    CONSTRAINT usuario_gerenciador FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+    material int NOT NULL,
+    CONSTRAINT turmaMaterial_turma FOREIGN KEY (sigla_turma) REFERENCES turma(sigla),
+    CONSTRAINT turmaMaterial_professor FOREIGN KEY (sigla_disc) REFERENCES professor(sigla_disc)
 );
 
 
