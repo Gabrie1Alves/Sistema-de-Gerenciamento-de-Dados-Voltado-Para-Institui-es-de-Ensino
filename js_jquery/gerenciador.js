@@ -22,7 +22,9 @@ function selectTurma(){
         $('#texto-info-excluir').text("Matricula do aluno:");
     }else if (op == 'p'){
         $('#texto-info-excluir').text("Matricula do professor:");
-    }  
+    }else{
+        $('#texto-info-excluir').text("Sigla da turma:");
+    }
 }
 
 function teste(){

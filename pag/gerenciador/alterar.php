@@ -3,15 +3,52 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost:8080/TCC_II");
     }  
+    include_once '../../conection/conect.php';
 // pega informação que vai alterar: a, p, t
-    $alterar = isset($_POST['turma']) ? $_POST['turma'] : null;
-    if($alterar != 'a' && $alterar != 'p' && $alterar != 't'){
-        header("location: http://localhost:8080/TCC_II/pag/gerenciador/select-alterar.php");
-    }
-// pega info como: mat aluno, mat prof, nome turma
+
+    $tipo = isset($_POST['turma']) ? $_POST['turma'] : null;
     $info = isset($_POST['info']) ? $_POST['info'] : null;
 
-//verificar se $info existe no banco!!
+    $alterar = isset($_POST['turma']) ? $_POST['turma'] : null;
+    if($tipo != 'a' && $tipo != 'p' && $tipo != 't'){
+        header("location: http://localhost/tcc/pag/gerenciador/select-alterar.php");
+    }
+// busca informações a serem alteradas:
+    $nome = "SELECT nome FROM usuario where matricula = '$info'";
+    $nome = mysqli_query($conn, $nome);
+    $nome = $nome->fetch_assoc();
+    if($tipo == 'a'){
+        $sql[0] = "SELECT * FROM aluno where matricula = '$info'";//aluno
+        $sql[1] = "SELECT * FROM endereco where matricula = '$info'";//aluno
+        $sql[2] = "SELECT * FROM contato where matricula = '$info'";//aluno
+        $sql[3] = "SELECT * FROM responsavel where matricula = '$info'";//aluno
+        $aluno = mysqli_query($conn, $sql[0]);
+        $aluno = $aluno->fetch_assoc();
+
+        $endereco = mysqli_query($conn, $sql[1]);
+        $endereco = $endereco->fetch_assoc();
+
+        $contato = mysqli_query($conn, $sql[2]);
+        $contato = $contato->fetch_assoc();
+
+        $responsavel = mysqli_query($conn, $sql[3]);
+        $responsavel = $responsavel->fetch_assoc();
+    }else if($tipo == 'p'){
+        $sql[0] = "SELECT * FROM professor where matricula = '$info'";//professor
+        $sql[1] = "SELECT * FROM endereco where matricula = '$info'";//professor
+        $sql[2] = "SELECT * FROM contato where matricula = '$info'";//professor
+        $professor = mysqli_query($conn, $sql[0]);
+        $professor = $professor->fetch_assoc();
+
+        $endereco = mysqli_query($conn, $sql[1]);
+        $endereco = $endereco->fetch_assoc();
+
+        $contato = mysqli_query($conn, $sql[2]);
+        $contato = $contato->fetch_assoc();
+    }
+    /*else{
+
+    }*/
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -36,71 +73,75 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <!-- <div class="selecao">
-                <button onclick="select_op_professor('aluno')" class="select">Aluno</button>
-                <button onclick="select_op_professor('professor')" class="select">Professor</button>
-                <button onclick="select_op_professor('disciplina')" class="select">Turma</button>
-                <button onclick="select_op_professor('horario')" class="select">Grade</button>
-            </div> -->
             <?php if($alterar == 'a'):?>
-                <form id="aluno" enctype = "multipart/form-data" form action="" method="POST">
-                    <p>Alterar informações do aluno:</p>
+                <form id="aluno" enctype = "multipart/form-data" form action="./_alterar.php" method="POST">
+                    <p>Alterar informações do aluno</p>
                     <div class="borda">
 
-                        <p>Informações do aluno</p>
+                    <p>Informações do aluno</p>
 
-                        <input class="d-none" name="tipo"  value="aluno" required>
-                        Nome do aluno: <br>
-                        <input class="input" name="nome"  placeholder="Nome completo" required> <br>    
-                        Data de entrada: <br>
-                        <input class="input" name="entrada" required type="date"> <br>
-                        Nome do pai: <br>
-                        <input class="input" name="pai"> <br> 
-                        Nome da mãe: <br>
-                        <input class="input" name="mae" required> <br> 
-                        RG: <br>
-                        <input class="input" name="rg" placeholder="ex: xx-11.111.111" required> <br> 
-                        Data de nascimento: <br>
-                        <input class="input" name="nascimento" required type="date"> <br>
-                        Turma: <br>
-                        <input class="input" name="turma" required> <br>
+                    <input class="d-none" name="tipo"  value="aluno" required>
+                    <input class="d-none" name="matricula" value="<?=$info?>" required> <br>
 
-                        <p>Informações do responsável</p>
+                    Nome do aluno: <br>
+                    <input class="input" name="nome" value="<?=$nome['nome']?>"  placeholder="Nome completo" disabled="true" required disable> <br>   
+                    Matricula do aluno: <br>
+                    <input class="input" name="matricula_" value="<?=$info?>"  placeholder="Nome completo" disabled="true" required disable> <br>   
+                    Nome do pai: <br>
+                    <input class="input" disabled="true" value="<?=$aluno['pai']?>" name="pai"> <br> 
+                    Nome da mãe: <br>
+                    <input class="input" name="mae" disabled="true" value="<?=$aluno['mae']?>" required> <br> 
+                    RG: <br>
+                    <input class="input" name="rg" disabled="true" value="<?=$aluno['rg']?>" placeholder="ex: xx-11.111.111" required> <br> 
+                    Data de nascimento: <br>
+                    <input class="input" name="nascimento" disabled="true" value="<?=$aluno['nascimento']?>" required type="date"> <br>
 
-                        Nome do responsável: <br>
-                        <input class="input" name="nome_resp" required> <br>
-                        RG do responsável: <br>
-                        <input class="input" name="rg_resp" placeholder="ex: xx-11.111.111" required> <br>
-                        CPF do responsável: <br>
-                        <input class="input" name="cpf_resp" placeholder="ex: 111.111.111-11" required> <br>
-                        Telefone do responsável: <br>
-                        <input class="input" name="tel_resp" placeholder="ex: 11 1111-1111"> <br>
-                        Celular do responsável: <br>
-                        <input class="input" name="cel_resp" placeholder="ex: 11 1 1111-1111" required> <br>
-                        Celular do responsável(2): <br>
-                        <input class="input" name="cel_resp2" placeholder="ex: 11 1 1111-1111" required> <br>
-                        E-mail do responsável: <br>
-                        <input class="input" name="email_resp" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
-                        <p>Informações de endereço</p>
-                        Rua: <br>
-                        <input class="input" name="rua" required> <br>
-                        Número: <br>
-                        <input class="input" name="num" required> <br>
-                        Complemento: <br>
-                        <input class="input" name="complemento" required> <br>
-                        Bairro: <br>
-                        <input class="input" name="bairro" required> <br>
-                        Cep: <br>
-                        <input class="input" name="cep" placeholder="11.111-000" required> <br>
-                        Cidade: <br>
-                        <input class="input" name="cidade" required> <br>
-                        Estado: <br>
-                        <input class="input" name="estado" required> <br>
-                        País: <br>
-                        <input class="input" name="pais" required> <br>
+                    Telefone: <br>
+                    <input class="input" name="tel" value="<?=$contato['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
+                    Celular: <br>
+                    <input class="input" name="cel1" value="<?=$contato['cel1']?>" placeholder="ex: 11 1 1111-1111" required> <br>
+                    Celularl(2): <br>
+                    <input class="input" name="cel2" value="<?=$contato['cel2']?>" placeholder="ex: 11 1 1111-1111"> <br>
+                    E-mail: <br>
+                    <input class="input" name="email" type="email" value="<?=$contato['email']?>" placeholder="ex: exemplo@exemplo.com" required> <br>
+                    Turma: <br>
+                    <input class="input" name="turma" value="<?=$aluno['turma']?>" required> <br>
 
-                        <button class="btn" type="submit">Submeter</button>
+                    <p>Informações do responsável</p>
+
+                    Nome do responsável: <br>
+                    <input class="input" name="nome_resp" value="<?=$responsavel['nome']?>" required> <br>
+                    RG do responsável: <br>
+                    <input class="input" name="rg_resp" value="<?=$responsavel['rg']?>" placeholder="ex: xx-11.111.111" required> <br>
+                    CPF do responsável: <br>
+                    <input class="input" name="cpf_resp" value="<?=$responsavel['cpf']?>" placeholder="ex: 111.111.111-11" required> <br>
+                    Telefone do responsável: <br>
+                    <input class="input" name="tel_resp" value="<?=$responsavel['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
+                    Celular do responsável: <br>
+                    <input class="input" name="cel_resp" value="<?=$responsavel['celular']?>" placeholder="ex: 11 1 1111-1111" required> <br>
+                    E-mail do responsável: <br>
+                    <input class="input" name="email_resp" value="<?=$responsavel['email']?>" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
+
+                    <p>Informações de endereço</p>
+                    Rua: <br>
+                    <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
+                    Número: <br>
+                    <input class="input" value="<?=$endereco['numero']?>" name="num" required> <br>
+                    Complemento: <br>
+                    <input class="input" value="<?=$endereco['complemento']?>" name="complemento" required> <br>
+                    Bairro: <br>
+                    <input class="input" value="<?=$endereco['bairro']?>" name="bairro" required> <br>
+                    Cep: <br>
+                    <input class="input" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
+                    Cidade: <br>
+                    <input class="input" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
+                    Estado: <br>
+                    <input class="input" value="<?=$endereco['estado']?>" name="estado" required> <br>
+                    País: <br>
+                    <input class="input" value="<?=$endereco['pais']?>" name="pais" required> <br>
+
+                    <button class="btn" type="submit">Submeter</button>
                     </div>
                 </form>
             
@@ -110,48 +151,53 @@
                     <div class="borda">
                         <p>Informações do professor</p>
                         <input class="d-none" name="tipo" value="professor" required>
-                        Nome: <br>
-                        <input class="input" name="nome" required> <br>    
+                        <input class="d-none" name="matricula" value="<?=$info?>" required> <br>
+
+                        Nome do professor: <br>
+                        <input class="input" name="nome" value="<?=$nome['nome']?>"  placeholder="Nome completo" disabled="true" required disable> <br>   
+                        Matricula do professor: <br>
+                        <input class="input" name="matricula_" value="<?=$info?>"  placeholder="Nome completo" disabled="true" required disable> <br>     
                         Disciplina: <br>
-                        <input class="input" name="atuacao" placeholder="ex: português" required> <br>  
+                        <input class="input" name="atuacao" value="<?=$professor['disciplica']?>"disabled="true" placeholder="ex: português" required> <br>  
                         Sigla da disciplina: <br>
-                        <input class="input" name="sigla_discplina" placeholder="nome da atividade" required> <br>  
+                        <input class="input" name="sigla_discplina"  value="<?=$professor['sigla_disc']?>"disabled="true" placeholder="nome da atividade" required> <br>  
                         RG: <br>
-                        <input class="input" name="rg" placeholder="ex: xx-11.111.111" required> <br>  
+                        <input class="input" name="rg"  value="<?=$professor['rg']?>"disabled="true" placeholder="ex: xx-11.111.111" required> <br>  
                         CPF: <br>
-                        <input class="input" name="cpf" placeholder="ex: 111.111.111-11" required> <br>  
+                        <input class="input" name="cpf"  value="<?=$professor['cpf']?>"disabled="true" placeholder="ex: 111.111.111-11" required> <br>  
                         Área de atuação: <br>
-                        <input class="input" name="area_atuacao" placeholder="ex: exatas" required> <br>  
+                        <input class="input" name="area_atuacao"  value="<?=$professor['atuacao']?>"disabled="true" placeholder="ex: exatas" required> <br>  
                         Data de nascimento: <br>
-                        <input class="input" name="nascimento" type="date" placeholder="nome da atividade" required> <br>  
+                        <input class="input" name="nascimento"  value="<?=$professor['nascimento']?>"disabled="true" type="date" placeholder="nome da atividade" required> <br>  
 
                         <p>Informações de contato</p>
                         Telefone: <br>
-                        <input class="input" name="tel" placeholder="ex: 11 1111-1111"> <br>
+                        <input class="input" value="<?=$contato['telefone']?>" name="tel"  placeholder="ex: 11 1111-1111"> <br>
                         Celular: <br>
-                        <input class="input" name="celp" placeholder="ex: 11 1 1111-1111" required> <br>
+                        <input class="input" value="<?=$contato['cel1']?>" name="celp" placeholder="ex: 11 1 1111-1111" required> <br>
                         Celular(2): <br>
-                        <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
+                        <input class="input" value="<?=$contato['cel2']?>" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
                         E-mail: <br>
-                        <input class="input" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
+                        <input class="input" value="<?=$contato['email']?>" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
                         <p>Informações de endereço</p>
                         Rua: <br>
-                        <input class="input" name="rua" required> <br>
+                        <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
                         Número: <br>
-                        <input class="input" name="num" required> <br>
+                        <input class="input" value="<?=$endereco['numero']?>" name="num" required> <br>
                         Complemento: <br>
-                        <input class="input" name="complemento" required> <br>
+                        <input class="input" value="<?=$endereco['complemento']?>" name="complemento" required> <br>
                         Bairro: <br>
-                        <input class="input" name="bairro" required> <br>
+                        <input class="input" value="<?=$endereco['bairro']?>" name="bairro" required> <br>
                         Cep: <br>
-                        <input class="input" name="cep" placeholder="11.111-000" required> <br>
+                        <input class="input" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
                         Cidade: <br>
-                        <input class="input" name="cidade" required> <br>
+                        <input class="input" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
                         Estado: <br>
-                        <input class="input" name="estado" required> <br>
+                        <input class="input" value="<?=$endereco['estado']?>" name="estado" required> <br>
                         País: <br>
-                        <input class="input" name="pais" required> <br>
+                        <input class="input" value="<?=$endereco['pais']?>" name="pais" required> <br>
+
 
                         <button class="btn" type="submit">Submeter</button>
                     </div>
