@@ -146,7 +146,7 @@
                 </form>
             
             <?php elseif($alterar == 'p'): ?>
-                <form id="professor" enctype = "multipart/form-data" form action="" method="POST">
+                <form id="professor" enctype = "multipart/form-data" action="./_alterar.php" method="POST">
                     <p>Altere as informações do professor aqui:</p>
                     <div class="borda">
                         <p>Informações do professor</p>
@@ -174,7 +174,7 @@
                         Telefone: <br>
                         <input class="input" value="<?=$contato['telefone']?>" name="tel"  placeholder="ex: 11 1111-1111"> <br>
                         Celular: <br>
-                        <input class="input" value="<?=$contato['cel1']?>" name="celp" placeholder="ex: 11 1 1111-1111" required> <br>
+                        <input class="input" value="<?=$contato['cel1']?>" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
                         Celular(2): <br>
                         <input class="input" value="<?=$contato['cel2']?>" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
                         E-mail: <br>

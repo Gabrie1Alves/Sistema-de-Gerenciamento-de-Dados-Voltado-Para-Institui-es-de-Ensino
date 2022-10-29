@@ -3,6 +3,16 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost:8080/TCC_II");
     }  
+    include_once '../../conection/conect.php';
+    $turmas = "SELECT sigla from turma";
+    $turmas = mysqli_query($conn, $turmas);
+    $aux = 0;
+    if($turmas->num_rows > 0){
+        while($v = $turmas->fetch_assoc()){
+            $turma[$aux] = $v['sigla'];
+            $aux = $aux + 1; 
+        }
+    }
 ?>
 <!-- atividades, notas_faltas, mural, complemento -->
 <?php
@@ -36,8 +46,11 @@
                 <div class="formTurma">
                     <p>Selecione a turma que deseja trabalhar:</p>
                     <select class="select" name="turma" id="turma">
-                        <option value="turma1">Turma 1</option>
-                        <option value="turma2">Turma 2</option>
+                        <?php
+                            for($i = 0; $i < count($turma); $i++){
+                                echo "<option value=".$turma[$i].">".$turma[$i]."</option>";
+                            }
+                        ?>
                     </select>
                     <br>
                     <button class="btn" type="submit">Entrar</button>

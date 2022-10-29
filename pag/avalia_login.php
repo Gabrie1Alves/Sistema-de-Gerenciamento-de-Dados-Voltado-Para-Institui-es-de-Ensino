@@ -6,8 +6,11 @@
     $senha = (isset($_POST['senha']) ? $_POST['senha'] : null);
 
     $sql = "select matricula, tipo, nome, senha from usuario where matricula = $matricula";
-    if($result = $conn->query($sql) ){
+    $sql1 = "select * from professor where matricula = $matricula";
+    if($result = $conn->query($sql)){
         $_SESSION["usuario"] = $result->fetch_assoc();
+        $result = $conn->query($sql1);
+        $_SESSION["professor"] = $result->fetch_assoc();
     }else{
         echo "<script> window.location = '../default.php'</script>";
     }

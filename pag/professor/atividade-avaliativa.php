@@ -3,6 +3,33 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost:8080/TCC_II");
     }  
+    include_once '../../conection/conect.php';
+    $turma = (isset($_POST['turma']) ? $_POST['turma'] : null);
+    $sql = "SELECT * FROM atividades_avaliativas WHERE sigla_turma = '$turma' and sigla_disc = '".$_SESSION['professor']['sigla_disc']."'";
+    $atividades = mysqli_query($conn, $sql);
+    $aux = 0;
+    $aux1 = 0;
+    if($atividades->num_rows > 0){
+        while($v = $atividades->fetch_assoc()){
+            $atividade[$aux1][$aux] = $v['id'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['sigla_turma'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['sigla_disc'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['data'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['horario'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['titulo'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['resumo'];
+            $aux = $aux + 1; 
+            $atividade[$aux1][$aux] = $v['valor'];
+            $aux = 0; 
+            $aux1 = $aux1 + 1;
+        }
+    }
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -27,62 +54,47 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
+            <!--
             <div class="selecao">
                 <button onclick="select_op_professor('criar')" class="select">Criar</button>
                 <button onclick="select_op_professor('alterar')" class="select">Alterar</button>
                 <button onclick="select_op_professor('excluir')" class="select">Excluir</button>
+            </div>-->
+            <form id="criar" enctype = "multipart/form-data" form action="./_criar-atividade.php" method="POST">
+                <p>Crie uma nova atividade aqui!</p>
+                <input class="input d-none" name="turma_sigla" value="<?=$turma?>">
+                <input class="input d-none" name="disciplina_sigla" value="<?=$_SESSION['professor']['sigla_disc']?>">
+                Data: <br>
+                <input class="input" name="data" required placeholder="30/10/22" type="date"> <br>
+                Horário: <br>
+                <input class="input" name="hora" required  type="time">
+                Título: <br>
+                <input class="input" name="titulo" required> <br>
+                Resumo: <br>
+                <input class="input" name="resumo" required> <br>
+                Valor: <br>
+                <input class="input" name="valor" required> <br>
+                <br>
+                <button class="btn" type="submit">Criar atividade</button>
+            </form>
+            <p>Ou exclua uma atividade existente aqui!</p>
+            <?php
+                for($i = 0; $i < count($atividade); $i++){
+                    echo "<form id='criar' enctype = 'multipart/form-data' form action='./_criar-atividade.php' method='POST'>
+                            <h5>Data:". $atividade[$i][3] ." </h5>
+                            <h5>Horário:". $atividade[$i][4] ."</h5>
+                            <h5>Título:". $atividade[$i][5] ."</h5>
+                            <h5>Resumo:". $atividade[$i][6] ."</h5>
+                            <h5>Valor:". $atividade[$i][7] ."</h5>
+                            <input class='input d-none' name='id' value='". $atividade[$i][0] ."' required> <br>
+                            <input class='input d-none' name='exluir' value='excluir' required> <br>
+                            <button class='btn' type='submit'>Excluir</button>
+                        </form>";
+                }
+            ?>
+            <div style="padding-bottom:50px">
+
             </div>
-            <form id="criar" enctype = "multipart/form-data" form action="./pag/avalia_login.php?infos=atividadesAvaliativas" method="POST">
-                <p>Crie uma atividade aqui!</p>
-                <input class="d-none" name="atividade" id="atividade" placeholder="nome da atividade" value="COLOCAR A TURMA AQUI" required>
-                Nome da atividade: <br>
-                <input class="input" name="atividade" id="atividade" placeholder="nome da atividade" required> <br>    
-                Sigla: <br>
-                <input class="input" name="sigla" id="sigla" placeholder="NDA" required > <br>
-                Valor: <br>
-                <input class="input" name="valor" id="valor" placeholder="30" required > <br>
-                Data: <br>
-                <input class="input" name="data" id="data" required placeholder="30/10/22" type="date">
-                <br>
-                <button class="btn" type="submit">Submeter</button>
-            </form>
-
-            <form id="alterar" class="d-none" enctype = "multipart/form-data" form action="./pag/avalia_login.php?infos=atividadesAvaliativas" method="POST">
-                <p>Altere uma atividade aqui!</p>
-                <input class="d-none" name="atividade" id="atividade" placeholder="nome da atividade" value="COLOCAR A TURMA AQUI" required>
-                Nome da atividade: <br>
-                <!-- <input class="input" name="atividade" id="atividade" placeholder="nome da atividade" required> <br>     -->
-                <select class="input" name="select">
-                    <option value="valor1">Valor 1</option>
-                    <option value="valor2" selected>Valor 2</option>
-                    <option value="valor3">Valor 3</option>
-                </select>
-                Sigla: <br>
-                <input class="input" name="sigla" id="sigla" placeholder="NDA" required > <br>
-                Valor: <br>
-                <input class="input" name="valor" id="valor" placeholder="30" required > <br>
-                Data: <br>
-                <input class="input" name="data" id="data" required placeholder="30/10/22" type="date">
-                <br>
-                <button class="btn" type="submit">Submeter</button>
-            </form>
-
-            <form id="excluir" class="d-none" enctype = "multipart/form-data" form action="./pag/avalia_login.php?infos=atividadesAvaliativas" method="POST">
-                <p>Exclua atividades aqui!</p>
-                Selecione as atividades que deseja excluir: <br>
-                
-                <div class="p-b">
-                    <input type = "checkbox" name = "at1">
-                    <label> AV1 </label>
-                </div>
-                <div class="p-b">
-                    <input type = "checkbox" name = "at2">
-                    <label> AV1 </label>
-                </div>
-                
-                <button class="btn" type="submit">Submeter</button>
-            </form>
-
         </div>
 
         <?php include_once '../../header_footer/footer.php'?>

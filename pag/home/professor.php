@@ -18,31 +18,25 @@
 
         <div class="container">
             <div class="apresentacao_home">
-                Olá {{nome}}, bem vindo ao painel do Professor! A seguir, estão todas as ações que você pode executar!
+                Olá <?php echo $_SESSION["usuario"]["nome"];?>, bem vindo ao painel do Professor! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
-            <a href="../turma/turma.php?select=atividades">
+            <a href="../professor/turma.php?select=atividades">
                     <div class="op">
                         Atividades avaliativas
-                        <span class="op_explicacao">Crie ou altere atividades avaliativas!</span>
+                        <span class="op_explicacao">Crie ou exclua atividades avaliativas!</span>
                     </div>
                 </a>
-                <a href="../turma/turma.php?select=notas_faltas">
+                <a href="../professor/turma.php?select=notas_faltas">
                     <div class="op">
                         Atualização de notas e faltas
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        <span class="op_explicacao">Atualize notas e faltas de uma turma!</span>
                     </div>
                 </a>
-                <a href="../turma/turma.php?select=mural">
+                <a href="../professor/turma.php?select=mural">
                     <div class="op">
-                        Mural de atividades
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
-                    </div>
-                </a>
-                <a href="../turma/turma.php?select=complemento">
-                    <div class="op">
-                        Materiais complementares
-                        <span class="op_explicacao">Suspendisse sapien nisl, ultrices semper nulla sit amet</span>
+                        Material complementar
+                        <span class="op_explicacao">Adicione material complementar para sua disciplina!</span>
                     </div>
                 </a>
                 
