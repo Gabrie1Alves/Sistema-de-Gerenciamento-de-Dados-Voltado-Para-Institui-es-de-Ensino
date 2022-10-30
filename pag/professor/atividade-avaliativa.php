@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['usuario'])){
-        header("location: http://localhost:8080/TCC_II");
+        header("location: http://localhost/tcc/");
     }  
     include_once '../../conection/conect.php';
     $turma = (isset($_POST['turma']) ? $_POST['turma'] : null);
