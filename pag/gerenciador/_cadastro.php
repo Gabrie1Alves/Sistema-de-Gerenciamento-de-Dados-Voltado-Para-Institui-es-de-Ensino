@@ -97,6 +97,64 @@
             echo "Alguma coisa deu errado no banco :O";
         }
 
+        //busca matérias do aluno
+        $disciplina = "SELECT disciplina_sigla1, disciplina_sigla2, disciplina_sigla3, disciplina_sigla4, disciplina_sigla5, disciplina_sigla6, disciplina_sigla7
+                         FROM turma_disciplinas where sigla_turma = '$usuario[0]'";
+        $disciplina = mysqli_query($conn, $disciplina);
+
+        $aux = 0;
+        if($disciplina->num_rows > 0){
+            while($v = $disciplina->fetch_assoc()){
+                $disciplinas[$aux] = $v['disciplina_sigla1'];
+                $aux = $aux + 1; 
+                $disciplinas[$aux] = $v['disciplina_sigla2'];
+                $aux = $aux + 1; 
+                $disciplinas[$aux] = $v['disciplina_sigla3'];
+                $aux = $aux + 1; 
+                $disciplinas[$aux] = $v['disciplina_sigla4'];
+                $aux = $aux + 1; 
+                if(!empty($v['disciplina_sigla5'])){
+                    $disciplinas[$aux] =$v['disciplina_sigla5'];
+                }
+                $aux = $aux + 1;
+                if(!empty($v['disciplina_sigla6'])){
+                    $disciplinas[$aux] =$v['disciplina_sigla6'];
+                }
+                $aux = $aux + 1;
+                if(!empty($v['disciplina_sigla7'])){
+                    $disciplinas[$aux] =$v['disciplina_sigla7'];
+                }
+                $aux = $aux + 1;
+            }
+        }
+        $x = "";
+        for($i = 0; $i < count($disciplinas); $i++){
+            if($i == count($disciplinas)-1){
+                $x = $x."('$usuario[0]', '$disciplinas[$i]', '$mat', 0)";
+            }else{
+                $x = $x."('$usuario[0]', '$disciplinas[$i]', '$mat', 0),";
+            }
+        }
+        $sql = "INSERT INTO turma_faltas(sigla_turma, sigla_disc, mat_aluno, faltas) VALUES $x";
+        if(!mysqli_query($conn, $sql)){
+            echo "ERRO NO CADASTRO DE turma_faltas!";
+            echo "Alguma coisa deu errado no banco :O";
+        }
+
+        $x = "";
+        for($i = 0; $i < count($disciplinas); $i++){
+            if($i == count($disciplinas)-1){
+                $x = $x."('$usuario[0]', '$disciplinas[$i]', '$mat', 0, 0)";
+            }else{
+                $x = $x."('$usuario[0]', '$disciplinas[$i]', '$mat', 0, 0),";
+            }
+        }
+        $sql = "INSERT INTO turma_nf_total(sigla_turma, sigla_disc, mat_aluno, falta, nota) VALUES $x";
+        if(!mysqli_query($conn, $sql)){
+            echo "ERRO NO CADASTRO DE turma_nf_total";
+            echo "Alguma coisa deu errado no banco :O";
+        }
+
     }else if($tipo == 'professor'){
         $usuario = [
             0 => (isset($_POST['nome']) ? $_POST['nome'] : null),
