@@ -10,14 +10,15 @@
     $sql2 = "select * from aluno where matricula = $matricula";
     if($result = $conn->query($sql)){
         $_SESSION["usuario"] = $result->fetch_assoc();
+
         $result = $conn->query($sql1);
         $_SESSION["professor"] = $result->fetch_assoc();
+
         $result = $conn->query($sql2);
         $_SESSION["aluno"] = $result->fetch_assoc();
     }else{
         echo "<script> window.location = '../default.php'</script>";
     }
-
     if($_SESSION["usuario"]["senha"] != $senha){
         echo "<script> window.location = '../default.php'</script>";
     }else{

@@ -4,3 +4,7 @@
 
 
 USAR GROUP BY NAS NOTAS PELA MATRICULA!!
+
+fazer a parte de complemento de professores!!
+fazer duas opções de alunos!!
+fazer envio de emails para novas atividade, atualizações de notas e faltas!!
