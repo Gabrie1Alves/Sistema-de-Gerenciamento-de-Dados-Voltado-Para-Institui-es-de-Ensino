@@ -18,7 +18,7 @@
 
         <div class="container">
             <div class="apresentacao_home">
-                Olá {{nome}}, bem vindo ao painel do Aluno! A seguir, estão todas as ações que você pode executar!
+                Olá <?php echo $_SESSION["usuario"]["nome"];?>, bem vindo ao painel do Aluno! A seguir, estão todas as ações que você pode executar!
             </div>
             <div class="secao_opcoes">
                 <a href="../aluno/view-infos.php">

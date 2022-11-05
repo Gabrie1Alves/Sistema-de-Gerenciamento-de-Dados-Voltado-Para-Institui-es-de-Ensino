@@ -3,6 +3,8 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }  
+    var_dump($_SESSION);
+    die;
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">

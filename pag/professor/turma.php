@@ -20,8 +20,10 @@
     $url = '../professor/';
     if ($pag === 'atividades'){
         $url = $url.'atividade-avaliativa.php';
-    }else if ($pag === 'notas_faltas'){
-        $url = $url.'notas-faltas.php';
+    }else if ($pag === 'notas'){
+        $url = $url.'notas.php';
+    }else if ($pag === 'faltas'){
+        $url = $url.'faltas.php';
     }else if ($pag === 'mural'){
         $url = $url.'mural.php';
     }else if ($pag === 'complemento'){

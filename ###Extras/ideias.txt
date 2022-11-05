@@ -1,3 +1,6 @@
 1- Envio de emails aos reponsáveis quanto a faltas
 2- envio de emails aos responsáveis quando marcar atividade
 3- envio de emails aos responsaveis quando soltar alguma nota
+
+
+USAR GROUP BY NAS NOTAS PELA MATRICULA!!

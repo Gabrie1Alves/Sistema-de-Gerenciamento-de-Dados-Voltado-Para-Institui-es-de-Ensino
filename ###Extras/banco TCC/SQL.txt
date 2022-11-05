@@ -97,6 +97,7 @@ CREATE TABLE turma_notas(
     sigla_disc varchar(20) NOT NULL,
     id_atividade int NOT NULL,
     mat_aluno int NOT NULL,
+    titulo varchar(60) NOT NULL,
     valor_atividade float NOT NULL,
     valor_atingido float DEFAULT 0,
     CONSTRAINT notas_turma FOREIGN KEY (sigla_turma) REFERENCES turma(sigla),

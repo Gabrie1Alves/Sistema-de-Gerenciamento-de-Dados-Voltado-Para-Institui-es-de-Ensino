@@ -27,10 +27,16 @@
                         <span class="op_explicacao">Crie ou exclua atividades avaliativas!</span>
                     </div>
                 </a>
-                <a href="../professor/turma.php?select=notas_faltas">
+                <a href="../professor/turma.php?select=notas">
                     <div class="op">
-                        Atualização de notas e faltas
-                        <span class="op_explicacao">Atualize notas e faltas de uma turma!</span>
+                        Atualização de notas
+                        <span class="op_explicacao">Atualize as notas de uma turma!</span>
+                    </div>
+                </a>
+                <a href="../professor/turma.php?select=faltas">
+                    <div class="op">
+                        Atualização de faltas
+                        <span class="op_explicacao">Atualize as faltas de uma turma!</span>
                     </div>
                 </a>
                 <a href="../professor/turma.php?select=mural">
