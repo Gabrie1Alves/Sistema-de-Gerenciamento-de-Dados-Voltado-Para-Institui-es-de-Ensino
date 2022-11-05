@@ -1,0 +1,39 @@
+descobrir alunos de uma turma
+
+	selecionar nome da turma, e ver na tabela alunos quais alunos estão na turma
+
+
+descobrir matérias de aluno
+	
+	ver a turma do aluno e buscar na tabela de turmas a matéria
+
+descobrir faltas de aluno
+
+	pegar matricula do anulo e verificar na tebala de notas_faltas as faltas em cada matéria e notas
+
+Ver notas de cada matéria em cada avaliação
+
+	matricula do aluno, matricula do prof, turma, disciplina, titulo da avaliação e verficar valor obtido na tabela de atividades avaliativas
+
+
+##########____GERENCIADOR____###########
+
+Cadastro de professor:
+	cad usuário -> pega matrícula -> cad endereço -> cad contato -> cad professor
+
+Cadastro de Alunos:
+
+Cadastros de turmas:
+
+
+##########____PROFESSOR____###########
+Cadastro de atividades avaliativas:
+
+Cadastro de notas de atividades avaliativas:
+
+Cadastro de notas:
+
+Cadastro de materiais complementares:
+
+
+##########____ALUNO____###########	

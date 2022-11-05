@@ -3,6 +3,18 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }  
+
+    include_once '../../conection/conect.php';
+    $sql = "SELECT * FROM turma_material WHERE sigla_turma = '".$_SESSION['aluno']['turma']."' ORDER BY sigla_disc";
+    $atividades = mysqli_query($conn, $sql);
+    $aux = 0;
+    $mural = [];
+    if($atividades->num_rows > 0){
+        while($v = $atividades->fetch_assoc()){
+            $mural[$aux] = $v;
+            $aux++; 
+        }
+    }
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -21,19 +33,19 @@
             <table> 
                 <tr class="tabela-topo">
                     <th>Disciplina</th>
-                    <th>Data</th>
-                    <th>Atividade</th>
+                    <th>Titulo</th>
+                    <th>Informação</th>
+                    <th>Material</th>
                 </tr>
-                <tr>
-                    <th>Matemática</th>
-                    <th>10/10/2022</th>
-                    <th>Prova</th>
-                </tr>
-                <tr>
-                    <th>Português</th>
-                    <th>20/10/2022</th>
-                    <th>Trabalho em dupla </th>
-                </tr>
+                <?php foreach($mural as $m):?>
+                    <tr>
+                        <th><?=$m['sigla_disc']?></th>
+                        <th><?=$m['titulo']?></th>
+                        <th><?=$m['informacao']?></th>
+                        <th><a style="color:black" href="../../material/<?=$m['material']?>"><?=$m['material']?></a></th>
+                    </tr>
+                <?php endforeach;?>
+            
             </table>
         </div>
 
