@@ -3,7 +3,7 @@
     margin: auto;
     color: white;
     margin-top: 50px;
-    background-color: black;
+    background: linear-gradient(18deg, rgba(0,0,0,1) 44%, rgba(35,219,81,1) 100%);
     border-top-left-radius: 14px;
     border-bottom-right-radius: 14px;
 }
@@ -31,10 +31,13 @@
     border-top-left-radius: 14px;
     margin-left: calc(50% - 75px);
     border-bottom-right-radius: 14px;
+    background-color: rgba(35,219,81,1);
+    color: white;
 }
 .login_btn:hover{
     transition: all 1s;
     border-radius: 14px;
+    color: black;
 
 }
 
@@ -48,6 +51,7 @@
     font-weight: bolder;
     border-radius: 14px;
     border: solid 1px red;
-    color: rgb(180, 3, 3);
-    background-color: rgb(214, 152, 152);
+    color: red;
+    font-style: italic;
+    background-color: rgb(233 202 202);
 }

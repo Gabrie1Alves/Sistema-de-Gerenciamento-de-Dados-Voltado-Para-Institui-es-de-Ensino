@@ -3,6 +3,7 @@
     margin-bottom: 10px;
 }
 .btn{
+    font-size: 1rem;
     width: 200px;
     color: white;
     padding: 10px 0;
@@ -11,6 +12,9 @@
     border-radius: 14px;
     background-color: black;
     margin-left: calc(50% - 100px);
+}
+.btn:hover{
+    color: rgba(35,219,81,1);
 }
 .d-none{
     display: none;
@@ -27,7 +31,9 @@ p{
     font-weight: 600;
     font-size: 1.2rem;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
 }
 .d-none{
     display: none;
@@ -55,11 +61,21 @@ p{
     background-color: black;
 }
 .select:hover{
-    border-top-left-radius: 34px;
-    border-bottom-right-radius: 34px;
+    background: radial-gradient(circle, rgba(35,219,81,1) 0%, rgba(0,0,0,1) 100%);
 }
 .borda{
     border: 1px solid black;
     padding: 10px;
     margin-bottom: 50px;
+    background-color: white;
+    color: black;
+}
+.subTitle_form{
+    background-color: black;
+    color: white;
+}
+.title_form{
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: white;
 }

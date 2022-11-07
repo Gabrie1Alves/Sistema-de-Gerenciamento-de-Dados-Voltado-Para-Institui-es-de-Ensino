@@ -54,13 +54,8 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <!--
-            <div class="selecao">
-                <button onclick="select_op_professor('criar')" class="select">Criar</button>
-                <button onclick="select_op_professor('alterar')" class="select">Alterar</button>
-                <button onclick="select_op_professor('excluir')" class="select">Excluir</button>
-            </div>-->
-            <form id="criar" enctype = "multipart/form-data" form action="./_criar-atividade.php" method="POST">
+
+            <form id="criar" class="borda" enctype = "multipart/form-data" form action="./_criar-atividade.php" method="POST">
                 <p>Crie uma nova atividade aqui!</p>
                 <input class="input d-none" name="turma_sigla" value="<?=$turma?>">
                 <input class="input d-none" name="disciplina_sigla" value="<?=$_SESSION['professor']['sigla_disc']?>">
@@ -80,15 +75,15 @@
             <p>Ou exclua uma atividade existente aqui!</p>
             <?php
                 for($i = 0; $i < count($atividade); $i++){
-                    echo "<form id='criar' enctype = 'multipart/form-data' form action='./_criar-atividade.php' method='POST'>
-                            <h5>Data:". $atividade[$i][3] ." </h5>
-                            <h5>Horário:". $atividade[$i][4] ."</h5>
-                            <h5>Título:". $atividade[$i][5] ."</h5>
-                            <h5>Resumo:". $atividade[$i][6] ."</h5>
-                            <h5>Valor:". $atividade[$i][7] ."</h5>
+                    echo "<form class='borda' id='criar' enctype = 'multipart/form-data' form action='./_criar-atividade.php' method='POST'>
+                            <h5 class='t-center h5-p'>Data:". $atividade[$i][3] ." </h5>
+                            <h5 class='t-center h5-p'>Horário:". $atividade[$i][4] ."</h5>
+                            <h5 class='t-center h5-p'>Título:". $atividade[$i][5] ."</h5>
+                            <h5 class='t-center h5-p'>Resumo:". $atividade[$i][6] ."</h5>
+                            <h5 class='t-center h5-p'>Valor:". $atividade[$i][7] ."</h5>
                             <input class='input d-none' name='id' value='". $atividade[$i][0] ."' required> <br>
                             <input class='input d-none' name='exluir' value='excluir' required> <br>
-                            <button class='btn' type='submit'>Excluir</button>
+                            <button class='btn excluir' type='submit'>Excluir</button>
                         </form>";
                 }
             ?>

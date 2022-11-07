@@ -17,10 +17,10 @@
         $result = $conn->query($sql2);
         $_SESSION["aluno"] = $result->fetch_assoc();
     }else{
-        echo "<script> window.location = '../default.php'</script>";
+        echo "<script> window.location = '../default.php?e=1'</script>";
     }
     if($_SESSION["usuario"]["senha"] != $senha){
-        echo "<script> window.location = '../default.php'</script>";
+        echo "<script> window.location = '../default.php?e=1'</script>";
     }else{
         $_SESSION["usuario"]["senha"] = '**********';
     }

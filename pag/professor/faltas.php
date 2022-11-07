@@ -33,12 +33,12 @@
         <link rel="stylesheet" href="../../css/todos/professor.css">
 
     </head>
-    <body>
+    <body class="vh-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container" style="margin-bottom:50px;">
-            <p class="titulo_nf">Atualizando notas e faltas da turma:</p>
-            <form enctype = "multipart/form-data" action="_faltas.php" method="POST">
+            <p class="titulo_nf">Atualizando notas e faltas da turma <?=$turma?>:</p>
+            <form class="borda" enctype = "multipart/form-data" action="_faltas.php" method="POST">
             
                 <?php foreach($faltas as $f):?>
                     <table class="notas_faltas"> 
@@ -48,7 +48,7 @@
                             <input class="d-none" name="sigla_d_<?=$aux?>" value="<?=$f['sigla_disc']?>" required>
                             <input class="d-none" name="mat_a_<?=$aux?>" value="<?=$f['mat_aluno']?>" required>
                             <th>Matricula:<?=$f['mat_aluno']?></th>
-                            <th>Faltas:<input name="falta_<?=$aux?>" value="<?=$f['faltas']?>" required></th>
+                            <th>Faltas:<input class="t-center" name="falta_<?=$aux?>" value="<?=$f['faltas']?>" required></th>
                         </tr>
                     </table>
                     <?php $aux++;?>

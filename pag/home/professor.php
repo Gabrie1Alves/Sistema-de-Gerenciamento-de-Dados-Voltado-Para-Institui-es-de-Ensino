@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/home_aluno-prof-geren.css">
     </head>
-    <body>
+    <body class="vh-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">

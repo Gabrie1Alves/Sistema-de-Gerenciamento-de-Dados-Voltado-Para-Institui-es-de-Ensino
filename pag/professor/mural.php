@@ -39,7 +39,7 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <form id="criar" enctype = "multipart/form-data" form action="./_mural.php" method="POST">
+            <form class="borda" id="criar" enctype = "multipart/form-data" form action="./_mural.php" method="POST">
                 <p>Adicionar material complementar:</p>
                 <input class="input d-none" name="sigla_turma" value="<?=$turma?>">
                 <input class="input d-none" name="sigla_disc" value="<?=$_SESSION['professor']['sigla_disc']?>">
@@ -52,16 +52,21 @@
                 <br>
                 <button class="btn" type="submit">Adicionar material</button>
             </form>
-            <p>Ou exclua um material existente aqui!</p>
+            <p class="title_form">Ou exclua um material existente aqui!</p>
             <?php foreach($mural as $m):?>
-                <h4>Título: <?=$m['titulo']?></h4><br>
-                <h4>Informação: <?=$m['informacao']?></h4><br>
-                <a style="color:black" href="../../material/<?=$m['material']?>">Material: <?=$m['material']?></a>
-                <form id='criar' enctype = 'multipart/form-data' form action='./_mural.php' method='POST'>
-                    <input class='input d-none' name='id' value='<?=$m["id"]?>' required> <br>
-                    <input class='input d-none' name='excluir' value='excluir' required> <br>
-                    <button class='btn' type='submit'>Excluir</button>
-                </form>
+                <div class="borda div-form">
+                    <h4>Título: <?=$m['titulo']?></h4><br>
+                    <hr>
+                    <h4>Informação: <?=$m['informacao']?></h4><br>
+                    <hr>
+                    <a style="color:black" href="../../material/<?=$m['material']?>">Material: <?=$m['material']?></a>
+                    <hr>
+                    <form id='criar' enctype = 'multipart/form-data' form action='./_mural.php' method='POST'>
+                        <input class='input d-none' name='id' value='<?=$m["id"]?>' required> <br>
+                        <input class='input d-none' name='excluir' value='excluir' required> <br>
+                        <button class='btn excluir' type='submit'>Excluir</button>
+                    </form>
+                </div>
             <?php endforeach;?>
 
             <div style="padding-bottom:50px">

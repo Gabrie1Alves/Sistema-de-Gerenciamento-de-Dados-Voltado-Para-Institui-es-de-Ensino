@@ -23,12 +23,12 @@
             crossorigin="anonymous">
         </script>
     </head>
-    <body>
+    <body class="vh-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-                <p>Altere cadastros aqui!!</p>
-                <form enctype = "multipart/form-data" form action="./alterar.php" method="POST">
+                <p class="title_form">Altere cadastros aqui!!</p>
+                <form class="borda" enctype = "multipart/form-data" form action="./alterar.php" method="POST">
                     <div class="formTurma">
                         <p>Selecione a opção que deseja alterar:</p>
                         <select onclick="selectTurma()" name="turma" id="turma">
@@ -38,7 +38,7 @@
                         </select>
                         <div id="a">
                             <p id="texto-info-excluir">Matricula do aluno:</p>
-                            <input name="info" required>
+                            <input class="w-100" name="info" required>
                         </div>
                         <br>
                         <button class="btn" type="submit">Continuar</button>

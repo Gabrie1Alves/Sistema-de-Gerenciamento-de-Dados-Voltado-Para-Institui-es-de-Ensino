@@ -75,10 +75,10 @@
         <div class="container">
             <?php if($alterar == 'a'):?>
                 <form id="aluno" enctype = "multipart/form-data" form action="./_alterar.php" method="POST">
-                    <p>Alterar informações do aluno</p>
+                    <p class="title_form">Alterar informações do aluno</p>
                     <div class="borda">
 
-                    <p>Informações do aluno</p>
+                    <p class="subTitle_form">Informações do aluno</p>
 
                     <input class="d-none" name="tipo"  value="aluno" required>
                     <input class="d-none" name="matricula" value="<?=$info?>" required> <br>
@@ -108,7 +108,7 @@
                     Turma: <br>
                     <input class="input" name="turma" value="<?=$aluno['turma']?>" required> <br>
 
-                    <p>Informações do responsável</p>
+                    <p class="subTitle_form">Informações do responsável</p>
 
                     Nome do responsável: <br>
                     <input class="input" name="nome_resp" value="<?=$responsavel['nome']?>" required> <br>
@@ -123,7 +123,7 @@
                     E-mail do responsável: <br>
                     <input class="input" name="email_resp" value="<?=$responsavel['email']?>" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
-                    <p>Informações de endereço</p>
+                    <p class="subTitle_form">Informações de endereço</p>
                     Rua: <br>
                     <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
                     Número: <br>
@@ -147,9 +147,9 @@
             
             <?php elseif($alterar == 'p'): ?>
                 <form id="professor" enctype = "multipart/form-data" action="./_alterar.php" method="POST">
-                    <p>Altere as informações do professor aqui:</p>
+                    <p class="title_form">Altere as informações do professor aqui:</p>
                     <div class="borda">
-                        <p>Informações do professor</p>
+                        <p class="subTitle_form">Informações do professor</p>
                         <input class="d-none" name="tipo" value="professor" required>
                         <input class="d-none" name="matricula" value="<?=$info?>" required> <br>
 
@@ -170,7 +170,7 @@
                         Data de nascimento: <br>
                         <input class="input" name="nascimento"  value="<?=$professor['nascimento']?>"disabled="true" type="date" placeholder="nome da atividade" required> <br>  
 
-                        <p>Informações de contato</p>
+                        <p class="subTitle_form">Informações de contato</p>
                         Telefone: <br>
                         <input class="input" value="<?=$contato['telefone']?>" name="tel"  placeholder="ex: 11 1111-1111"> <br>
                         Celular: <br>
@@ -180,7 +180,7 @@
                         E-mail: <br>
                         <input class="input" value="<?=$contato['email']?>" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
-                        <p>Informações de endereço</p>
+                        <p class="subTitle_form">Informações de endereço</p>
                         Rua: <br>
                         <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
                         Número: <br>

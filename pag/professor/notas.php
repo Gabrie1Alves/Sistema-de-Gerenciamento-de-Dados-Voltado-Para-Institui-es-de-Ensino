@@ -83,12 +83,12 @@
         <link rel="stylesheet" href="../../css/todos/professor.css">
 
     </head>
-    <body>
+    <body style="min-height: 100vh;">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container" style="margin-bottom:50px;">
-            <p class="titulo_nf">Atualizando notas e faltas da turma:</p>
-            <form enctype = "multipart/form-data" action="_notas.php" method="POST">
+            <p class="titulo_nf">Atualizando notas e faltas da turma <?=$turma?>:</p>
+            <form class="borda" enctype = "multipart/form-data" action="_notas.php" method="POST">
             
                 <?php foreach($nome_atividades as $nome_at):?>
                     <h4>Atividade:<?=$nome_at['titulo']?></h4>
@@ -104,12 +104,13 @@
                                     <input class="d-none" name="valor_<?=$aux?>" value="<?=$infos_at['valor_atividade']?>" required>
                                     <th>Matricula:<?=$infos_at['mat_aluno']?></th>
                                     <th>Valor:<?=$infos_at['valor_atividade']?></th>
-                                    <th>Nota:<input name="nota_<?=$aux?>" value="<?=$infos_at['valor_atingido']?>" required></th>
+                                    <th>Nota:<input class="t-center" name="nota_<?=$aux?>" value="<?=$infos_at['valor_atingido']?>" required></th>
                                 </tr>
                             </table>
                             <?php $aux++;?>
                         <?php endif;?>
                     <?php endforeach;?>
+                    <hr style="margin: 20px 0">
                 <?php endforeach;?>
                 <button style="margin-top:20px" class="btn" type="submit">Salvar</button>
             </form>

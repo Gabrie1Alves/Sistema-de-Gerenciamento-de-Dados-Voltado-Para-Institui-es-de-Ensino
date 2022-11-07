@@ -8,6 +8,7 @@ a{
     color: black;
     padding: 30px 0;
     font-size: 1.5rem;
+    font-weight: 700;
 }
 .secao_opcoes{
     width: 100%;
@@ -27,6 +28,9 @@ a{
     flex-direction: column;
     justify-content: center;
     background-color: black;
+}
+.op:hover{
+    background: radial-gradient(circle, rgba(35,219,81,1) -100%, rgba(0,0,0,1) 100%);
 }
 .op_explicacao{
     display: none;

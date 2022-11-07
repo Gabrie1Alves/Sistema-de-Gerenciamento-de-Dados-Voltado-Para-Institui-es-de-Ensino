@@ -56,7 +56,7 @@
             crossorigin="anonymous">
         </script>
     </head>
-    <body>
+    <body class="vh-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
@@ -70,17 +70,25 @@
                 <?php echo "MATRICULA INEXISTENTE!"?>
             <?php elseif($alterar == 'a'):?>
                 <form enctype = "multipart/form-data" action="./_exclusao.php" method="POST">
-                    <p>Deseja excluir esse cadastro?</p>
+                    <p class="title_form">Deseja excluir esse cadastro?</p>
                     <div class="borda">
                         <!-- rg, nascimento, turma, mae, pai-->
                         <p>Informações do aluno:</p>
+                        <hr>
                         <h4>Nome: <?= $nome['nome']?></h4>
+                        <hr>
                         <h4>Entrada: <?= $nome['entrada']?></h4>
+                        <hr>
                         <h4>Matrícula: <?= $matricula?></h4>
+                        <hr>
                         <h4>RG: <?= $user['rg']?></h4>
+                        <hr>
                         <h4>Nascimento: <?= $user['nascimento']?></h4>
+                        <hr>
                         <h4>Turma: <?= $user['turma']?></h4>
+                        <hr>
                         <h4>Mae: <?= $user['mae']?></h4>   
+                        <hr>
                         <input class="d-none" type="text" name="matricula" value="<?= $matricula?>">
                         <input class="d-none" type="text" name="tipo" value="aluno">
                         <button class="btn" type="submit">Excluir</button>               

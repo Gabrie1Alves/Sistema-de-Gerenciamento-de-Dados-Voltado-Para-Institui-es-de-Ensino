@@ -1,3 +1,1 @@
-<div class="footer">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-</div>
+<a class="footer" href="https://github.com/Gabrie1Alves/Sistema-de-Gerenciamento-de-Dados-Voltado-Para-Instituicoes-de-Ensino">Sistema de gerenciamento de dados voltado para instituicoes de ensino</a>

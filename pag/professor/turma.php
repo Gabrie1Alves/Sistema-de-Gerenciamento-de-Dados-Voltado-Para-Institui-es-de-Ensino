@@ -40,23 +40,25 @@
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/turma.css">
+        <link rel="stylesheet" href="../../css/todos/professor.css">
     </head>
-    <body>
+    <body class="vh-100">
         <?php include_once '../../header_footer/header.php'?>
         <div class="container">
-            <form enctype = "multipart/form-data" form action="<?= $url?>" method="POST">
-                <div class="formTurma">
-                    <p>Selecione a turma que deseja trabalhar:</p>
-                    <select class="select" name="turma" id="turma">
-                        <?php
-                            for($i = 0; $i < count($turma); $i++){
-                                echo "<option value=".$turma[$i].">".$turma[$i]."</option>";
-                            }
-                        ?>
-                    </select>
-                    <br>
-                    <button class="btn" type="submit">Entrar</button>
-                </div>
+            <form class="borda" enctype = "multipart/form-data" form action="<?= $url?>" method="POST">
+
+                <p>Selecione a turma que deseja trabalhar:</p>
+                <select class="w-100" name="turma" id="turma"
+                style="margin-top:10px; margin-bottom:20px">
+                    <?php
+                        for($i = 0; $i < count($turma); $i++){
+                            echo "<option value=".$turma[$i].">".$turma[$i]."</option>";
+                        }
+                    ?>
+                </select>
+                <br>
+                <button class="btn" type="submit">Entrar</button>
+
             </form>
         </div>
 

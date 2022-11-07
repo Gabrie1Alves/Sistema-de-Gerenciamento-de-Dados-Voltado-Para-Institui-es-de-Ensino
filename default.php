@@ -3,6 +3,7 @@
     if(isset($_SESSION)){
         session_destroy();
     }
+    $erro = (isset($_GET['e']) ? $_GET['e'] : 0);
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -13,11 +14,11 @@
         <link rel="stylesheet" href="./css/geral/css.css">
         <link rel="stylesheet" href="./css/todos/login.css">
     </head>
-    <body>
+    <body class="vh-100">
         <div class="header_total">
             <div class="header">
                 <div class="header_op">logo</div>
-                <a href="./pag/topo/contato.php"><div class="header_op">Contato</div></a>
+                <a  href="./pag/topo/contato.php"><div class="header_op">Contato</div></a>
                 <div class="header_op">Configurações</div>
                 <div class="header_op">Sair</div>
             </div>
@@ -39,11 +40,12 @@
                         </form>
                     </div>
             </div>
-
-            <div class="error">
-                Código ou senha inválido! <br>
-                Tente novamente.
-            </div>
+            <?php if($erro == 1):?>
+                <div class="error">
+                    Código ou senha inválido! <br>
+                    Tente novamente.
+                </div>
+            <?php endif;?>
         </div>
 
         <?php include_once './header_footer/footer.php'?>

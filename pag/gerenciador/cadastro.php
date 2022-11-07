@@ -34,51 +34,51 @@
                 <!-- <button onclick="select_op_professor('horario')" class="select">Grade</button> -->
             </div>
             <form id="aluno" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
-                <p>Cadastre um novo aluno aqui!</p>
+                <p class="title_form">Cadastre um novo aluno aqui!</p>
                 <div class="borda">
 
-                    <p>Informações do aluno</p>
+                    <p class="subTitle_form">Informações do aluno</p>
 
                     <input class="d-none" name="tipo"  value="aluno" required>
                     Nome do aluno: <br>
-                    <input class="input" name="nome"  placeholder="Nome completo" required> <br>    
+                    <input class="input" name="nome"  placeholder="Nome completo do aluno" required> <br>    
                     Nome do pai: <br>
-                    <input class="input" name="pai"> <br> 
+                    <input class="input" name="pai" placeholder="Nome completo do pai"> <br> 
                     Nome da mãe: <br>
-                    <input class="input" name="mae" required> <br> 
+                    <input class="input" name="mae" required placeholder="Nome completo da mãe"> <br> 
                     RG: <br>
-                    <input class="input" name="rg" placeholder="ex: xx-11.111.111" required> <br> 
+                    <input class="input" name="rg" placeholder="ex.: xx-11.111.111" required> <br> 
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" required type="date"> <br>
                     
 
                     Telefone: <br>
-                    <input class="input" name="tel" placeholder="ex: 11 1111-1111"> <br>
+                    <input class="input" name="tel" placeholder="ex.: 34 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel1" placeholder="ex.: 34 9 1111-1111" required> <br>
                     Celularl(2): <br>
-                    <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111"> <br>
+                    <input class="input" name="cel2" placeholder="ex.: 34 9 1111-1111"> <br>
                     E-mail: <br>
-                    <input class="input" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
+                    <input class="input" name="email" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
                     Turma: <br>
                     <input class="input" name="turma" required> <br>
 
-                    <p>Informações do responsável</p>
+                    <p class="subTitle_form">Informações do responsável</p>
 
                     Nome do responsável: <br>
-                    <input class="input" name="nome_resp" required> <br>
+                    <input class="input" name="nome_resp" placeholder="Nome completo do responsável" required> <br>
                     RG do responsável: <br>
-                    <input class="input" name="rg_resp" placeholder="ex: xx-11.111.111" required> <br>
+                    <input class="input" name="rg_resp" placeholder="ex.: xx-11.111.111" required> <br>
                     CPF do responsável: <br>
-                    <input class="input" name="cpf_resp" placeholder="ex: 111.111.111-11" required> <br>
+                    <input class="input" name="cpf_resp" placeholder="ex.: 111.111.111-11" required> <br>
                     Telefone do responsável: <br>
-                    <input class="input" name="tel_resp" placeholder="ex: 11 1111-1111"> <br>
+                    <input class="input" name="tel_resp" placeholder="ex.: 34 1111-1111"> <br>
                     Celular do responsável: <br>
-                    <input class="input" name="cel_resp" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel_resp" placeholder="ex.: 34 9 1111-1111" required> <br>
                     E-mail do responsável: <br>
-                    <input class="input" name="email_resp" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
+                    <input class="input" name="email_resp" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
 
-                    <p>Informações de endereço</p>
+                    <p class="subTitle_form">Informações de endereço</p>
                     Rua: <br>
                     <input class="input" name="rua" required> <br>
                     Número: <br>
@@ -88,7 +88,7 @@
                     Bairro: <br>
                     <input class="input" name="bairro" required> <br>
                     Cep: <br>
-                    <input class="input" name="cep" placeholder="11.111-000" required> <br>
+                    <input class="input" name="cep" placeholder="ex.: 11.111-000" required> <br>
                     Cidade: <br>
                     <input class="input" name="cidade" required> <br>
                     Estado: <br>
@@ -96,41 +96,41 @@
                     País: <br>
                     <input class="input" name="pais" required> <br>
 
-                    <button class="btn" type="submit">Submeter</button>
+                    <button class="btn" type="submit">Cadastrar</button>
                 </div>
             </form>
 
             <form id="professor" class="d-none" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
-                <p>Cadastre um novo professor aqui!</p>
+                <p class="title_form">Cadastre um novo professor aqui!</p>
                 <div class="borda">
-                    <p>Informações do professor</p>
+                    <p class="subTitle_form">Informações do professor</p>
                     <input class="d-none" name="tipo" value="professor" required>
                     Nome: <br>
-                    <input class="input" name="nome" required> <br>    
+                    <input class="input" name="nome" required placeholder="Nome completo do professor"> <br>    
                     Disciplina: <br>
-                    <input class="input" name="disciplina" placeholder="ex: português" required> <br>  
+                    <input class="input" name="disciplina" placeholder="ex.: Português" required> <br>  
                     Sigla da disciplina: <br>
-                    <input class="input" name="sigla_discplina" placeholder="nome da atividade" required> <br>  
+                    <input class="input" name="sigla_discplina" placeholder="Sigla da disciplina" required> <br>  
                     RG: <br>
-                    <input class="input" name="rg" placeholder="ex: xx-11.111.111" required> <br>  
+                    <input class="input" name="rg" placeholder="ex.: xx-11.111.111" required> <br>  
                     CPF: <br>
-                    <input class="input" name="cpf" placeholder="ex: 111.111.111-11" required> <br>  
+                    <input class="input" name="cpf" placeholder="ex.: 111.111.111-11" required> <br>  
                     Área de atuação: <br>
-                    <input class="input" name="atuacao" placeholder="ex: exatas" required> <br>  
+                    <input class="input" name="atuacao" placeholder="ex.: Exatas" required> <br>  
                     Data de nascimento: <br>
-                    <input class="input" name="nascimento" type="date" placeholder="nome da atividade" required> <br>  
+                    <input class="input" name="nascimento" type="date" required> <br>  
 
-                    <p>Informações de contato</p>
+                    <p class="subTitle_form">Informações de contato</p>
                     Telefone: <br>
-                    <input class="input" name="tel" placeholder="ex: 11 1111-1111"> <br>
+                    <input class="input" name="tel" placeholder="ex.: 34 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel1" placeholder="ex.: 34 9 1111-1111" required> <br>
                     Celular(2): <br>
-                    <input class="input" name="cel2" placeholder="ex: 11 1 1111-1111"> <br>
+                    <input class="input" name="cel2" placeholder="ex.: 34 9 1111-1111"> <br>
                     E-mail: <br>
-                    <input class="input" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
+                    <input class="input" name="email" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
 
-                    <p>Informações de endereço</p>
+                    <p class="subTitle_form">Informações de endereço</p>
                     Rua: <br>
                     <input class="input" name="rua" required> <br>
                     Número: <br>
@@ -140,7 +140,7 @@
                     Bairro: <br>
                     <input class="input" name="bairro" required> <br>
                     Cep: <br>
-                    <input class="input" name="cep" placeholder="11.111-000" required> <br>
+                    <input class="input" name="cep" placeholder="ex.: 11.111-000" required> <br>
                     Cidade: <br>
                     <input class="input" name="cidade" required> <br>
                     Estado: <br>
@@ -148,20 +148,20 @@
                     País: <br>
                     <input class="input" name="pais" required> <br>
 
-                    <button class="btn" type="submit">Submeter</button>
+                    <button class="btn" type="submit">Cadastrar</button>
                 </div>
             </form>
 
             <form id="disciplina" class="d-none" enctype = "multipart/form-data" action="_cadastro.php" method="POST">
-                <p>Cadastre uma nova turma aqui</p>
+                <p class="title_form">Cadastre uma nova turma aqui</p>
                 <div class="borda">
-                    <p>Informações da turma</p>
+                    <p class="subTitle_form">Informações da turma</p>
                     <input class="d-none" name="tipo"  value="turma" required>
 
                     Nome da turma: <br>
-                    <input class="input" name="nome" placeholder="nome da turma" required> <br>    
+                    <input class="input" name="nome" placeholder="Nome da turma" required> <br>    
                     Sigla da turma: <br>
-                    <input class="input" name="sigla" placeholder="nome da turma" required> <br>  
+                    <input class="input" name="sigla" placeholder="Sigla da turma" required> <br>  
                     Ano de criação: <br>
                     <input class="input" name="ano" type="date" required> <br> 
                     Sigla disciplina 1: <br>
@@ -179,7 +179,7 @@
                     Sigla disciplina 7: <br>
                     <input class="input" name="disciplina7"> <br> 
 
-                    <p>Dia e horario das disciplinas</p>
+                    <p class="subTitle_form">Dia e horario das disciplinas</p>
                     Dias de aula da disciplina 1 e horario: <br>
                     <input required class="input" name="dia_d1_1" placeholder="ex:segunda"> <br>
                     <input required class="input" name="h_d1_1" type="time"> <br>
