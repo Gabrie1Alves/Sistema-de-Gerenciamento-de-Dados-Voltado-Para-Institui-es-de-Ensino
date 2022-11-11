@@ -52,36 +52,42 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/aluno.css">
     </head>
-    <body>
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <p class="title">Notas</p>
-                <h3>Disicplina: <?=$infos[0]['sigla_disc']?></h3>
-            <?php foreach($infos as $i):?>
-                <?php if($i['sigla_disc'] != $aux):?>
-                    <h3>Disicplina: <?=$i['sigla_disc']?></h3>
-                    <?php $aux = $i['sigla_disc']?>
-                <?php endif;?>
-                <table class="notas_faltas"> 
-                    <tr>
-                        <th>Atividade:<?=$i['titulo']?></th>
-                        <th>Valor:<?=$i['valor_atividade']?></th>
-                        <th>Nota:<?=$i['valor_atingido']?></th>
-                    </tr>
-                </table>
-            <?php endforeach;?>
+            <p class="title_form t-center m-t50">Notas</p>
+            <div class="borda m-t50">
+                <h3 class="subTitle_form t-center">Disicplina: <?=$infos[0]['sigla_disc']?></h3>
+                <?php foreach($infos as $i):?>
+                    <?php if($i['sigla_disc'] != $aux):?>
+                        <h3 class="subTitle_form t-center">Disicplina: <?=$i['sigla_disc']?></h3>
+                        <?php $aux = $i['sigla_disc']?>
+                    <?php endif;?>
+                    <table class="notas_faltas"> 
+                        <tr>
+                            <th>Atividade:<?=$i['titulo']?></th>
+                            <th>Valor:<?=$i['valor_atividade']?></th>
+                            <th>Nota:<?=$i['valor_atingido']?></th>
+                        </tr>
+                    </table>
+                <?php endforeach;?>
+            </div>
+            
 
 
-            <p class="title">Faltas</p>
-            <?php foreach($falta as $f):?>
-                <table class="notas_faltas"> 
-                    <tr>
-                        <th>Disciplina:<?=$f['sigla_disc']?></th>
-                        <th>Faltas:<?=$f['faltas']?></th>
-                    </tr>
-                </table>
-            <?php endforeach;?>
+            <p class="title_form t-center m-t50">Faltas</p>
+            <div class="borda m-t50">
+                <?php foreach($falta as $f):?>
+                    <table class="notas_faltas"> 
+                        <tr>
+                            <th>Disciplina:<?=$f['sigla_disc']?></th>
+                            <th>Faltas:<?=$f['faltas']?></th>
+                        </tr>
+                    </table>
+                <?php endforeach;?>
+            </div>
+            
 
         </div>
 

@@ -59,7 +59,7 @@
                     <hr>
                     <h4>Informação: <?=$m['informacao']?></h4><br>
                     <hr>
-                    <a style="color:black" href="../../material/<?=$m['material']?>">Material: <?=$m['material']?></a>
+                    <a style="color:black" href="../../material/<?=$m['material']?>">Clique aqui para visualizar!</a>
                     <hr>
                     <form id='criar' enctype = 'multipart/form-data' form action='./_mural.php' method='POST'>
                         <input class='input d-none' name='id' value='<?=$m["id"]?>' required> <br>

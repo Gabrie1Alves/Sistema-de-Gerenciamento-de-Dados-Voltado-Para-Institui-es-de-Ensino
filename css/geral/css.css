@@ -66,7 +66,53 @@ a{
     background: radial-gradient(circle, rgba(35,219,81,1) 0%, rgba(0,0,0,1) 100%);
 }
 
+/*__________SQL respostas _________________*/
+.sql_erro{
+    width: 400px;
+    margin: auto;
+    color: red;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+    border-radius: 14px;
+    border: solid 1px red;
+    background-color: rgb(233 202 202);
+}
+.sql_sucesso{
+    width: 400px;
+    margin: auto;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+    border-radius: 14px;
+    color: rgb(9 118 15);
+    border: solid 1px rgb(8 167 21);
+    background-color: rgb(135, 228, 174);
+}
 /* ________________________EXTRAS________________________ */
+
+.borda{
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 50px;
+    background-color: white;
+    color: black;
+}
+.subTitle_form{
+    background-color: black;
+    color: white;
+}
+.title_form{
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: white;
+}
 
 .d-none{
     display: none;
@@ -84,12 +130,21 @@ a{
     text-align: center;
 }
 .excluir{
-    background-color: rgb(212, 153, 153) !important;
     color: red !important;
     border: 1px solid red !important;
+    background-color: rgb(212, 153, 153) !important;
 }
 .excluir:hover{
-    background-color: red !important;
-    color: black !important;
     transition: all .3s;
+    color: black !important;
+    background-color: red !important;
+}
+.m-t50{
+    margin-top: 50px;
+}
+.m-b20{
+    margin-bottom: 20px;
+}
+.min-height-100{
+    min-height: 100vh;
 }

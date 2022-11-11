@@ -3,6 +3,8 @@
     if(!isset($_SESSION["usuario"])){
         header("location: http://localhost/tcc/");
     }  
+
+    $erro = (isset($_GET['e']) ? $_GET['e'] : 10);
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -13,7 +15,7 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/home_aluno-prof-geren.css">
     </head>
-    <body class="vh-100">
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
@@ -47,6 +49,21 @@
                 </a>
                 
             </div>
+            <?php if($erro == 1):?>
+                <div class="sql_erro">
+                    Erro no cadastro!! <br>
+                    Tente novamente.
+                </div>
+            <?php elseif($erro == 2):?>
+                <div class="sql_erro">
+                    Erro na atualização das informações!! <br>
+                    Tente novamente.
+                </div>
+            <?php elseif($erro == 0):?>
+                <div class="sql_sucesso">
+                    Ação realizada com sucesso!!
+                </div>
+            <?php endif;?>
         </div>
 
         <?php include_once '../../header_footer/footer.php'?>

@@ -31,17 +31,17 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/aluno.css">
     </head>
-    <body>
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <p class="title">Horario</p>
+            <p class="title_form t-center m-t50">Horario</p>
             <div class="disciplinas">
                 <?php foreach($disciplinas as $d):?>
                     <p class="disciplinas-siglas"><?=$d['sigla']?> - <?=$d['disc']?></p>
                 <?php endforeach;?>
             </div>
-            <table> 
+            <table class="borda"> 
                 <tr class="tabela-topo">
                     <th>Disciplina</th>
                     <th>Dia</th>

@@ -37,20 +37,17 @@
             crossorigin="anonymous">
         </script>
     </head>
-    <body>
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
 
             <form id="aluno" enctype = "multipart/form-data" form action="./_config.php" method="POST">
-                <p>Alterar informações do aluno</p>
+                <p class="title_form">Alterar informações</p>
                 <div class="borda">
-
-                    <p>Alterar informações</p>
-
                     <input class="d-none" name="matricula" value="<?=$contato['matricula']?>" required> <br>
 
-                    <p>Contato</p>
+                    <p class="subTitle_form">Contato</p>
 
                     Telefone: <br>
                     <input class="input" name="tel" value="<?=$contato['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
@@ -61,7 +58,7 @@
                     E-mail: <br>
                     <input class="input" name="email" type="email" value="<?=$contato['email']?>" placeholder="ex: exemplo@exemplo.com" required> <br>
 
-                    <p>Senha</p>
+                    <p class="subTitle_form">Senha</p>
                     Senha antiga: <br>
                     <input class="input" value="<?=$usuario['senha']?>" disabled> <br>
                     Nova senha: <br>

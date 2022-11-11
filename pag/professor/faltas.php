@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="../../css/todos/professor.css">
 
     </head>
-    <body class="vh-100">
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container" style="margin-bottom:50px;">

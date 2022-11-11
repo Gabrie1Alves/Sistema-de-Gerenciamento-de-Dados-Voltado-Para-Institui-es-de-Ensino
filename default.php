@@ -14,13 +14,13 @@
         <link rel="stylesheet" href="./css/geral/css.css">
         <link rel="stylesheet" href="./css/todos/login.css">
     </head>
-    <body class="vh-100">
+    <body class="min-height-100">
         <div class="header_total">
             <div class="header">
-                <div class="header_op">logo</div>
+                <a  href="./default.php"><div class="header_op">Logo</div></a>
                 <a  href="./pag/topo/contato.php"><div class="header_op">Contato</div></a>
-                <div class="header_op">Configurações</div>
-                <div class="header_op">Sair</div>
+                <a  href="./default.php"><div class="header_op">Configurações</div></a>
+                <a  href="./default.php"><div class="header_op">Sair</div></a>
             </div>
         </div>
 

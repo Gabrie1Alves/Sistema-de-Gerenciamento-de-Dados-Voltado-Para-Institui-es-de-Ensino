@@ -3,6 +3,7 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }
+    $erro = 0;
 
     include_once '../../conection/conect.php';
 
@@ -42,12 +43,18 @@
         $sql = "INSERT INTO turma_notas(sigla_turma, sigla_disc, id_atividade, mat_aluno, valor_atividade, valor_atingido) 
         VALUES ('$i[1]', '$i[2]', '$i[3]', '$i[4]', '$i[5]', '$i[6]');";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO UPDATE!";
+            $erro++;
         }
     }
     $sql = "DELETE FROM turma_notas where id in ($del)";
     if(!mysqli_query($conn, $sql)){
-        echo "ERRO NO UPDATE!";
+        $erro++;
+    }
+
+    if($erro > 0){
+        echo "<script> window.location = '../home/professor.php?e=2'</script>";
+    }else{
+        echo "<script> window.location = '../home/professor.php?e=0'</script>";
     }
 
 ?>

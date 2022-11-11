@@ -3,6 +3,7 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }
+    $erro = 0;
 
     include_once '../../conection/conect.php';
 
@@ -50,17 +51,21 @@
                 WHERE matricula = '$matricula'";
         for($i = 0; $i < 3; $i++){
             if(!mysqli_query($conn, $sql[$i])){
-                echo "ERRO NA EXCLUSÃO SQL".$i."!";
-                echo "Alguma coisa deu errado no banco :O";
+                $erro++;
             }
         }
     }else{ //professor
         for($i = 0; $i < 2; $i++){
             if(!mysqli_query($conn, $sql[$i])){
-                echo "ERRO NA EXCLUSÃO SQL".$i."!";
-                echo "Alguma coisa deu errado no banco :O";
+                $erro++;
             }
         }
+    }
+
+    if($erro > 0){
+        echo "<script> window.location = '../home/gerenciador.php?e=2'</script>";
+    }else{
+        echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
     }
     
 ?>

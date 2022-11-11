@@ -5,7 +5,7 @@
     }
 
     include_once '../../conection/conect.php';
-
+    $erro =0;
 
     $infos = [];
     $aux = 0;
@@ -25,7 +25,13 @@
     foreach($infos as $i){
         $sql = "UPDATE turma_faltas SET faltas = '$i[4]' WHERE id = '$i[0]'";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO UPDATE!";
+            $erro++;
         }
+    }
+
+    if($erro > 0){
+        echo "<script> window.location = '../home/gerenciador.php?e=2'</script>";
+    }else{
+        echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
     }
 ?>

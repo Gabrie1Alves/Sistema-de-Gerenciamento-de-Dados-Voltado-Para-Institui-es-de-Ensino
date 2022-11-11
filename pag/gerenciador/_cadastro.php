@@ -3,6 +3,7 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }
+    $erro = 0;
 
     include_once '../../conection/conect.php';
 
@@ -36,8 +37,7 @@
         // Cadastra usuário (PADRÃO)
         $sql_user = "INSERT INTO usuario(tipo, senha, nome) VALUES ('$tipo', '$senha', '$nome');";
         if(!mysqli_query($conn, $sql_user)){
-            echo "ERRO NO CADASTRO DE USUÁRIO!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
         // BUSCA MATRICULA DO USUARIO CADASTRADO
         $sql_mat = "SELECT MAX(matricula) from usuario where tipo = '$tipo'";
@@ -49,15 +49,13 @@
         $sql_endereco = "INSERT INTO endereco(matricula, rua, numero, complemento, bairro, cep, cidade, estado, pais) 
                             VALUES ('$mat', '$endereco[0]','$endereco[1]','$endereco[2]','$endereco[3]','$endereco[4]','$endereco[5]','$endereco[6]','$endereco[7]')";
         if(!mysqli_query($conn, $sql_endereco)){
-            echo "ERRO NO CADASTRO DE ENDEREÇO!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }   
 
         // Cadastra contato (PADRÃO)
         $sql_info = "INSERT INTO contato(matricula, telefone, cel1, cel2, email) VALUES ('$mat', '$info[0]','$info[1]','$info[2]','$info[3]')";
         if(!mysqli_query($conn, $sql_info)){
-            echo "ERRO NO CADASTRO DE CONTATOS!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
 
     }   
@@ -76,8 +74,7 @@
         $sql_prof = "INSERT INTO aluno(matricula, turma, mae, pai, nascimento, rg) 
                     VALUES ('$mat', '$usuario[0]','$usuario[1]','$usuario[2]','$usuario[3]','$usuario[4]')";
         if(!mysqli_query($conn, $sql_prof)){
-            echo "ERRO NO CADASTRO DE ALUNO!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
 
         $responsavel = [
@@ -93,8 +90,7 @@
         $sql_prof = "INSERT INTO responsavel(matricula, nome, rg, cpf, telefone, celular, email) 
                     VALUES ('$mat', '$responsavel[0]','$responsavel[1]','$responsavel[2]','$responsavel[3]','$responsavel[4]','$responsavel[5]')";
         if(!mysqli_query($conn, $sql_prof)){
-            echo "ERRO NO CADASTRO DE RESPONSAVEL!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
 
         //busca matérias do aluno
@@ -137,8 +133,7 @@
         }
         $sql = "INSERT INTO turma_faltas(sigla_turma, sigla_disc, mat_aluno, faltas) VALUES $x";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE turma_faltas!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
 
         $x = "";
@@ -151,8 +146,26 @@
         }
         $sql = "INSERT INTO turma_nf_total(sigla_turma, sigla_disc, mat_aluno, falta, nota) VALUES $x";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE turma_nf_total";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
+        }
+        if($erro > 0){
+            $sql = "DELETE FROM turma_nf_total WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM turma_faltas WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM responsavel WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM aluno WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM contato WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM endereco WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM usuario WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            echo "<script> window.location = '../home/gerenciador.php?e=1'</script>";
+        }else{
+            echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
         }
 
     }else if($tipo == 'professor'){
@@ -170,8 +183,22 @@
         $sql_prof = "INSERT INTO professor(matricula, disciplica, sigla_disc, rg, cpf, atuacao, nascimento) 
                     VALUES ('$mat', '$usuario[1]','$usuario[2]','$usuario[3]','$usuario[4]','$usuario[5]','$usuario[6]')";
         if(!mysqli_query($conn, $sql_prof)){
-            echo "ERRO NO CADASTRO DE PROFESSOR!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
+        }
+
+        if($erro > 0){
+            $sql = "DELETE FROM professor WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM contato WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM endereco WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM usuario WHERE matricula = $mat";
+            mysqli_query($conn, $sql);
+
+            echo "<script> window.location = '../home/gerenciador.php?e=1'</script>";
+        }else{
+            echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
         }
 
     }else if($tipo == 'turma'){
@@ -207,8 +234,7 @@
         //Cadastra turma
         $sql_turma = "INSERT INTO  turma (sigla, nome, ano) VALUES ('$turma[1]','$turma[0]','')";
         if(!mysqli_query($conn, $sql_turma)){
-            echo "ERRO NO CADASTRO DE TURMA!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         }
 
         //Cadastra turma_disciplinas
@@ -220,8 +246,18 @@
             '$dia[0]','$dia[1]','$dia[2]','$dia[3]','$dia[4]','$dia[5]','$dia[6]','$dia[7]','$dia[8]','$dia[9]','$dia[10]','$dia[11]','$dia[12]','$dia[13]',
             '$hora[0]','$hora[1]','$hora[2]','$hora[3]','$hora[4]','$hora[5]','$hora[6]','$hora[7]','$hora[8]','$hora[9]','$hora[10]','$hora[11]','$hora[12]','$hora[13]')";
         if(!mysqli_query($conn, $sql_turma_disciplinas)){
-            echo "ERRO NO CADASTRO DE DISCIPLINAS DA TURMA!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
+        }
+
+        if($erro > 0){
+            $sql = "DELETE FROM turma WHERE sigla = '$turma[1]'";
+            mysqli_query($conn, $sql);
+            $sql = "DELETE FROM turma_disciplinas WHERE sigla_turma = '$turma[1]'";
+            mysqli_query($conn, $sql);
+
+            echo "<script> window.location = '../home/gerenciador.php?e=1'</script>";
+        }else{
+            echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
         }
     }
 ?>

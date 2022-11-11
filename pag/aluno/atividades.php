@@ -4,8 +4,10 @@
         header("location: http://localhost/tcc/");
     }  
 
+
     include_once '../../conection/conect.php';
-    $sql = "SELECT * FROM turma_material WHERE sigla_turma = '".$_SESSION['aluno']['turma']."' ORDER BY sigla_disc";
+    $sql = "SELECT * FROM atividades_avaliativas WHERE sigla_turma = '".$_SESSION['aluno']['turma']."' 
+            AND data > CURDATE() ORDER BY data";
     $atividades = mysqli_query($conn, $sql);
     $aux = 0;
     $mural = [];
@@ -25,24 +27,29 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/aluno.css">
     </head>
-    <body>
+    <body  class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">
-            <p class="title">Mural de atividades</p>
-            <table> 
+            <p class="title_form t-center m-t50">Mural de atividades</p>
+            <table class="borda"> 
                 <tr class="tabela-topo">
                     <th>Disciplina</th>
-                    <th>Titulo</th>
-                    <th>Informação</th>
-                    <th>Material</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Título</th>
+                    <th>Resumo</th>
+                    <th>Valor</th>
                 </tr>
                 <?php foreach($mural as $m):?>
                     <tr>
                         <th><?=$m['sigla_disc']?></th>
+                        <th><?=$m['data']?></th>
+                        <th><?=$m['horario']?></th>
                         <th><?=$m['titulo']?></th>
-                        <th><?=$m['informacao']?></th>
-                        <th><a style="color:black" href="../../material/<?=$m['material']?>"><?=$m['material']?></a></th>
+                        <th><?=$m['resumo']?></th>
+                        <th><?=$m['valor']?></th>
+                        
                     </tr>
                 <?php endforeach;?>
             

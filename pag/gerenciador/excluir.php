@@ -56,7 +56,7 @@
             crossorigin="anonymous">
         </script>
     </head>
-    <body class="vh-100">
+    <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container">

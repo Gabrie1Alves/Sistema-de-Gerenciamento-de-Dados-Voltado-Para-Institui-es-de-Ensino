@@ -4,6 +4,8 @@
         header("location: http://localhost/tcc/");
     }
 
+    $erro = 0;
+
     include_once '../../conection/conect.php';
     $excluir = (isset($_POST['exluir']) ? $_POST['exluir'] : null);
     $id = (isset($_POST['id']) ? $_POST['id'] : null);
@@ -20,8 +22,7 @@
         $sql = "INSERT INTO atividades_avaliativas(sigla_turma, sigla_disc, data, horario, titulo, resumo, valor)
                     VALUES ('$info[0]','$info[1]','$info[2]','$info[3]','$info[4]','$info[5]','$info[6]')";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE ENDEREÇO!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         } 
 
         //busca id atividade
@@ -51,20 +52,24 @@
         $sql = "INSERT INTO turma_notas(sigla_turma, sigla_disc, id_atividade, mat_aluno, valor_atividade, valor_atingido)
                 VALUES $x";
         if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE ENDEREÇO!";
-            echo "Alguma coisa deu errado no banco :O";
+            $erro++;
         } 
     }else{
         $sql = "DELETE FROM atividades_avaliativas WHERE id = '$id'";
-        if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE ENDEREÇO!";
-            echo "Alguma coisa deu errado no banco :O";
-        }
+        mysqli_query($conn, $sql)
         $sql = "DELETE FROM turma_notas where id_atividade = $id";
-        if(!mysqli_query($conn, $sql)){
-            echo "ERRO NO CADASTRO DE ENDEREÇO!";
-            echo "Alguma coisa deu errado no banco :O";
-        }
+        mysqli_query($conn, $sql)
+    }
+
+    if($erro > 0){
+        $sql = "DELETE FROM atividades_avaliativas WHERE id = '$id_atividade'";
+        mysqli_query($conn, $sql)
+        $sql = "DELETE FROM turma_notas where id_atividade = $id_atividade";
+        mysqli_query($conn, $sql)
+
+        echo "<script> window.location = '../home/professor.php?e=1'</script>";
+    }else{
+        echo "<script> window.location = '../home/professor.php?e=0'</script>";
     }
     
 ?>

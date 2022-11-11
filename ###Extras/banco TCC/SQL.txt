@@ -1,23 +1,6 @@
 utilizador -> tccuser
 senha -> SWES132tccQW
 
-
--- usuario OK
--- endereco OK
--- contato OK
--- professor OK
--- turma OK
--- atividades_avaliativas OK
--- turma_material ++ NOK ++
--- aluno OK
--- turma_notas OK
--- turma_faltas OK
--- turma_nf-final OK
--- turma_disciplinas OK
--- responsavel OK
--- gerenciador OK
-
-
 CREATE TABLE usuario (
 	matricula int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     tipo varchar(15) NOT NULL,

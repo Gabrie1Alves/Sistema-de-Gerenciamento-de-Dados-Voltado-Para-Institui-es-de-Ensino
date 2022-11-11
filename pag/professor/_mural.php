@@ -19,7 +19,9 @@
             move_uploaded_file($arquivo['tmp_name'], $pasta_destino . $arquivo_nome);
             $sql = "INSERT INTO turma_material (sigla_turma, sigla_disc, titulo, informacao, material) 
                     VALUES ('$sigla_turma', '$sigla_disc', '$titulo', '$informacao', '$arquivo_nome')";
-            mysqli_query($conn, $sql);
+            if(!mysqli_query($conn, $sql)){
+                $erro++;
+            }
         }
     }else{
         $id = (isset($_POST['id']) ? $_POST['id'] : null);
@@ -27,6 +29,11 @@
         mysqli_query($conn, $sql);
     }
 
+    if($erro > 0){
+        echo "<script> window.location = '../home/professor.php?e=1'</script>";
+    }else{
+        echo "<script> window.location = '../home/professor.php?e=0'</script>";
+    }
     
 
 ?>
