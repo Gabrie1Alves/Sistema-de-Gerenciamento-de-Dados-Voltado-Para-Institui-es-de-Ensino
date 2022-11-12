@@ -4,7 +4,7 @@
     padding: 20px 0 10px 0;
 }
 .input{
-    width: 500px;
+    width: 100%;
     margin-bottom: 10px;
 }
 .btn{
@@ -31,6 +31,12 @@ form, .div-form{
     font-size: 1.1rem;
     border-radius: 10px;
     margin-left: calc(50% - 260px);
+}
+@media screen and (max-width:600px){
+    form, .div-form{
+        width: 300px;
+        margin-left: calc(50% - 150px);
+    }
 }
 p{
     font-weight: 600;
@@ -62,6 +68,12 @@ p{
     font-size: 1.3rem;
     transition: all 1s;
     background-color: black;
+}
+@media screen and (max-width:900px){
+    .select{
+        width: 29%;
+        margin-left: 2%;
+    }
 }
 .select:hover{
     border-top-left-radius: 34px;

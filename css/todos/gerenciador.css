@@ -27,6 +27,12 @@ form, .div-form{
     border-radius: 10px;
     margin-left: calc(50% - 260px);
 }
+@media screen and (max-width:600px){
+    form, .div-form{
+        width: 300px;
+        margin-left: calc(50% - 150px);
+    }
+}
 p{
     font-weight: 600;
     font-size: 1.2rem;
@@ -59,6 +65,12 @@ p{
     font-size: 1.3rem;
     transition: all 1s;
     background-color: black;
+}
+@media screen and (max-width:900px){
+    .select{
+        width: 29%;
+        margin-left: 2%;
+    }
 }
 .select:hover{
     background: radial-gradient(circle, rgba(35,219,81,1) 0%, rgba(0,0,0,1) 100%);

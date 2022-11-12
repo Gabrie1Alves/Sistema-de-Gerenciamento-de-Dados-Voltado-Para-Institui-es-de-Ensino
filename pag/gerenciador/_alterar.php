@@ -55,11 +55,11 @@
             }
         }
     }else{ //professor
-        for($i = 0; $i < 2; $i++){
-            if(!mysqli_query($conn, $sql[$i])){
-                $erro++;
-            }
-        }
+        //for($i = 0; $i < 2; $i++){
+            //if(!mysqli_query($conn, $sql[$i])){
+            //    $erro++;
+            //}
+        //}
     }
 
     if($erro > 0){

@@ -32,6 +32,9 @@
         <link rel="stylesheet" href="../../css/geral/css.css">
         <link rel="stylesheet" href="../../css/todos/professor.css">
 
+        <!--JS-->
+        <script type="text/javascript" src="../../js_jquery/verify.js"></script>
+
     </head>
     <body class="min-height-100">
         <?php include_once '../../header_footer/header.php'?>
@@ -48,7 +51,7 @@
                             <input class="d-none" name="sigla_d_<?=$aux?>" value="<?=$f['sigla_disc']?>" required>
                             <input class="d-none" name="mat_a_<?=$aux?>" value="<?=$f['mat_aluno']?>" required>
                             <th>Matricula:<?=$f['mat_aluno']?></th>
-                            <th>Faltas:<input class="t-center" name="falta_<?=$aux?>" value="<?=$f['faltas']?>" required></th>
+                            <th>Faltas:<input class="t-center" name="falta_<?=$aux?>" onchange="ehNum('falta_<?=$aux?>', 0)" value="<?=$f['faltas']?>" required></th>
                         </tr>
                     </table>
                     <?php $aux++;?>

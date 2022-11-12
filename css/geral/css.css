@@ -24,6 +24,13 @@ a{
     margin: auto;
 }
 
+@media screen and (max-width:1000px){
+    .container{
+        width: 95%;
+        margin: auto;
+    }
+}
+
 /*____________________HEADER________________________*/
 .header_total{
     width: 100%;
@@ -37,6 +44,11 @@ a{
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+@media screen and (max-width:900px){
+    .header{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 .header_op{
     padding: 15px 0;

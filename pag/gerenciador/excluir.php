@@ -27,11 +27,11 @@
     //3- trazer informações do cadastro
     if($existe == true){
         if($alterar == 'a'){ //aluno
-            $sql = "SELECT rg, nascimento, turma, mae from aluno where matricula = '$matricula'";
+            $sql = "SELECT * from aluno where matricula = '$matricula'";
             $dados = mysqli_query($conn, $sql);
             $user = $dados->fetch_assoc();
         }else{//professor
-            $sql = "SELECT disciplica, sigla_disc, rg, cpf, atuacao, nascimento from professor where matricula = '$matricula'";
+            $sql = "SELECT * from professor where matricula = '$matricula'";
             $dados = mysqli_query($conn, $sql);
             $user = $dados->fetch_assoc();
         }

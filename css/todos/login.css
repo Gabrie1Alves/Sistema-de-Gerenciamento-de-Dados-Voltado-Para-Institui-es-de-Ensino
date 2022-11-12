@@ -7,6 +7,11 @@
     border-top-left-radius: 14px;
     border-bottom-right-radius: 14px;
 }
+@media screen and (max-width:500px){
+    .login{
+        width: 300px;
+    }
+}
 .login_logo{
     width: 100px;
     margin: auto;

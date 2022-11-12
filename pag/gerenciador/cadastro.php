@@ -15,6 +15,7 @@
 
         <!-- JS -->
         <script type="text/javascript" src="../../js_jquery/gerenciador.js"></script>
+        <script type="text/javascript" src="../../js_jquery/verify.js"></script>
 
         <!-- jQuery -->
         <script
@@ -41,23 +42,23 @@
 
                     <input class="d-none" name="tipo"  value="aluno" required>
                     Nome do aluno: <br>
-                    <input class="input" name="nome"  placeholder="Nome completo do aluno" required> <br>    
+                    <input class="input" name="nome" onchange="ehString('nome', 0)"  placeholder="Nome completo do aluno" required> <br>    
                     Nome do pai: <br>
-                    <input class="input" name="pai" placeholder="Nome completo do pai"> <br> 
+                    <input class="input" name="pai" onchange="ehString('pai', 0)" placeholder="Nome completo do pai"> <br> 
                     Nome da mãe: <br>
-                    <input class="input" name="mae" required placeholder="Nome completo da mãe"> <br> 
+                    <input class="input" name="mae" onchange="ehString('mae', 0)" required placeholder="Nome completo da mãe"> <br> 
                     RG: <br>
-                    <input class="input" name="rg" placeholder="ex.: xx-11.111.111" required> <br> 
+                    <input class="input" name="rg" onchange="ehRg('rg', 0)" maxlength="10" placeholder="ex.: 11.111.111" required> <br> 
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" required type="date"> <br>
                     
 
                     Telefone: <br>
-                    <input class="input" name="tel" placeholder="ex.: 34 1111-1111"> <br>
+                    <input class="input" name="tel" onchange="ehTel('tel', 0)" placeholder="ex.: 34 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="cel1" placeholder="ex.: 34 9 1111-1111" required> <br>
+                    <input class="input" name="cel1" onchange="ehCel('cel1', 0)" placeholder="ex.: 34 9 1111-1111" required> <br>
                     Celularl(2): <br>
-                    <input class="input" name="cel2" placeholder="ex.: 34 9 1111-1111"> <br>
+                    <input class="input" name="cel2" onchange="ehCel('cel2', 0)" placeholder="ex.: 34 9 1111-1111"> <br>
                     E-mail: <br>
                     <input class="input" name="email" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
                     Turma: <br>
@@ -66,35 +67,35 @@
                     <p class="subTitle_form">Informações do responsável</p>
 
                     Nome do responsável: <br>
-                    <input class="input" name="nome_resp" placeholder="Nome completo do responsável" required> <br>
+                    <input class="input" name="nome_resp" onchange="ehString('nome_resp', 0)" placeholder="Nome completo do responsável" required> <br>
                     RG do responsável: <br>
-                    <input class="input" name="rg_resp" placeholder="ex.: xx-11.111.111" required> <br>
+                    <input class="input" name="rg_resp" onchange="ehRg('rg_resp', 0)" placeholder="ex.: 11.111.111" required> <br>
                     CPF do responsável: <br>
-                    <input class="input" name="cpf_resp" placeholder="ex.: 111.111.111-11" required> <br>
+                    <input class="input" name="cpf_resp" onchange="ehCpf('cpf_resp', 0)" placeholder="ex.: 111.111.111-11" required> <br>
                     Telefone do responsável: <br>
-                    <input class="input" name="tel_resp" placeholder="ex.: 34 1111-1111"> <br>
+                    <input class="input" name="tel_resp" onchange="ehTel('tel_resp', 0)" placeholder="ex.: 34 1111-1111"> <br>
                     Celular do responsável: <br>
-                    <input class="input" name="cel_resp" placeholder="ex.: 34 9 1111-1111" required> <br>
+                    <input class="input" name="cel_resp" onchange="ehCel('cel_resp', 0)" placeholder="ex.: 34 9 1111-1111" required> <br>
                     E-mail do responsável: <br>
                     <input class="input" name="email_resp" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
 
                     <p class="subTitle_form">Informações de endereço</p>
                     Rua: <br>
-                    <input class="input" name="rua" required> <br>
+                    <input class="input" name="rua"  required> <br>
                     Número: <br>
-                    <input class="input" name="num" required> <br>
+                    <input class="input" name="num" onchange="ehNum('num', 0)" required> <br>
                     Complemento: <br>
                     <input class="input" name="complemento" required> <br>
                     Bairro: <br>
                     <input class="input" name="bairro" required> <br>
                     Cep: <br>
-                    <input class="input" name="cep" placeholder="ex.: 11.111-000" required> <br>
+                    <input class="input" name="cep" onchange="ehCep('cep', 0)" placeholder="ex.: 11.111-000" required> <br>
                     Cidade: <br>
-                    <input class="input" name="cidade" required> <br>
+                    <input class="input" name="cidade" onchange="ehString('cidade', 0)" required> <br>
                     Estado: <br>
-                    <input class="input" name="estado" required> <br>
+                    <input class="input" name="estado" onchange="ehString('estado', 0)" required> <br>
                     País: <br>
-                    <input class="input" name="pais" required> <br>
+                    <input class="input" name="pais" onchange="ehString('pais', 0)" required> <br>
 
                     <button class="btn" type="submit">Cadastrar</button>
                 </div>
@@ -106,27 +107,27 @@
                     <p class="subTitle_form">Informações do professor</p>
                     <input class="d-none" name="tipo" value="professor" required>
                     Nome: <br>
-                    <input class="input" name="nome" required placeholder="Nome completo do professor"> <br>    
+                    <input class="input" name="nome" onchange="ehString('nome', 1)" required placeholder="Nome completo do professor"> <br>    
                     Disciplina: <br>
-                    <input class="input" name="disciplina" placeholder="ex.: Português" required> <br>  
+                    <input class="input" name="disciplina" onchange="ehString('disciplina', 1)" placeholder="ex.: Português" required> <br>  
                     Sigla da disciplina: <br>
                     <input class="input" name="sigla_discplina" placeholder="Sigla da disciplina" required> <br>  
                     RG: <br>
-                    <input class="input" name="rg" placeholder="ex.: xx-11.111.111" required> <br>  
+                    <input class="input" name="rg" onchange="ehRg('rg', 1)" placeholder="ex.: 11.111.111" required> <br>  
                     CPF: <br>
-                    <input class="input" name="cpf" placeholder="ex.: 111.111.111-11" required> <br>  
+                    <input class="input" name="cpf" onchange="ehCpf('cpf', 1)" placeholder="ex.: 111.111.111-11" required> <br>  
                     Área de atuação: <br>
-                    <input class="input" name="atuacao" placeholder="ex.: Exatas" required> <br>  
+                    <input class="input" name="atuacao" onchange="ehString('string', 1)" placeholder="ex.: Exatas" required> <br>  
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" type="date" required> <br>  
 
                     <p class="subTitle_form">Informações de contato</p>
                     Telefone: <br>
-                    <input class="input" name="tel" placeholder="ex.: 34 1111-1111"> <br>
+                    <input class="input" name="tel" onchange="ehTel('tel', 1)" placeholder="ex.: 34 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="cel1" placeholder="ex.: 34 9 1111-1111" required> <br>
+                    <input class="input" name="cel1" onchange="ehCel('cel1', 1)" placeholder="ex.: 34 9 1111-1111" required> <br>
                     Celular(2): <br>
-                    <input class="input" name="cel2" placeholder="ex.: 34 9 1111-1111"> <br>
+                    <input class="input" name="cel2" onchange="ehCel('cel2', 1)" placeholder="ex.: 34 9 1111-1111"> <br>
                     E-mail: <br>
                     <input class="input" name="email" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
 
@@ -134,19 +135,19 @@
                     Rua: <br>
                     <input class="input" name="rua" required> <br>
                     Número: <br>
-                    <input class="input" name="num" required> <br>
+                    <input class="input" name="num" onchange="ehNum('num', 1)" required> <br>
                     Complemento: <br>
                     <input class="input" name="complemento" required> <br>
                     Bairro: <br>
                     <input class="input" name="bairro" required> <br>
                     Cep: <br>
-                    <input class="input" name="cep" placeholder="ex.: 11.111-000" required> <br>
+                    <input class="input" name="cep"onchange="ehCep('cep', 1)" placeholder="ex.: 11.111-000" required> <br>
                     Cidade: <br>
-                    <input class="input" name="cidade" required> <br>
+                    <input class="input" name="cidade"onchange="ehString('cidade', 1)" required> <br>
                     Estado: <br>
-                    <input class="input" name="estado" required> <br>
+                    <input class="input" name="estado"onchange="ehString('estado', 1)" required> <br>
                     País: <br>
-                    <input class="input" name="pais" required> <br>
+                    <input class="input" name="pais"onchange="ehString('pais', 1)" required> <br>
 
                     <button class="btn" type="submit">Cadastrar</button>
                 </div>

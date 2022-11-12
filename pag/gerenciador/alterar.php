@@ -61,6 +61,7 @@
 
         <!-- JS -->
         <script type="text/javascript" src="../../js_jquery/gerenciador.js"></script>
+        <script type="text/javascript" src="../../js_jquery/verify.js"></script>
 
         <!-- jQuery -->
         <script
@@ -88,21 +89,21 @@
                     Matricula do aluno: <br>
                     <input class="input" name="matricula_" value="<?=$info?>"  placeholder="Nome completo" disabled="true" required disable> <br>   
                     Nome do pai: <br>
-                    <input class="input" disabled="true" value="<?=$aluno['pai']?>" name="pai"> <br> 
+                    <input class="input" disabled="true" onchange="ehString('pai', 0)" value="<?=$aluno['pai']?>" name="pai"> <br> 
                     Nome da mãe: <br>
-                    <input class="input" name="mae" disabled="true" value="<?=$aluno['mae']?>" required> <br> 
+                    <input class="input" name="mae" disabled="true" onchange="ehString('mae', 0)" value="<?=$aluno['mae']?>" required> <br> 
                     RG: <br>
-                    <input class="input" name="rg" disabled="true" value="<?=$aluno['rg']?>" placeholder="ex: xx-11.111.111" required> <br> 
+                    <input class="input" name="rg" disabled="true" onchange="ehRg('rg', 0)" value="<?=$aluno['rg']?>" placeholder="ex: xx-11.111.111" required> <br> 
                     Data de nascimento: <br>
                     <input class="input" name="nascimento" disabled="true" value="<?=$aluno['nascimento']?>" required type="date"> <br>
 
 
                     Telefone: <br>
-                    <input class="input" name="tel" value="<?=$contato['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
+                    <input class="input" name="tel" onchange="ehTel('tel', 0)" value="<?=$contato['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
                     Celular: <br>
-                    <input class="input" name="cel1" value="<?=$contato['cel1']?>" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel1" onchange="ehCel('cel1', 0)" value="<?=$contato['cel1']?>" placeholder="ex: 11 1 1111-1111" required> <br>
                     Celularl(2): <br>
-                    <input class="input" name="cel2" value="<?=$contato['cel2']?>" placeholder="ex: 11 1 1111-1111"> <br>
+                    <input class="input" name="cel2" onchange="ehCel('cel2', 0)" value="<?=$contato['cel2']?>" placeholder="ex: 11 1 1111-1111"> <br>
                     E-mail: <br>
                     <input class="input" name="email" type="email" value="<?=$contato['email']?>" placeholder="ex: exemplo@exemplo.com" required> <br>
                     Turma: <br>
@@ -111,15 +112,15 @@
                     <p class="subTitle_form">Informações do responsável</p>
 
                     Nome do responsável: <br>
-                    <input class="input" name="nome_resp" value="<?=$responsavel['nome']?>" required> <br>
+                    <input class="input" name="nome_resp" onchange="ehString('nome_resp', 0)" value="<?=$responsavel['nome']?>" required> <br>
                     RG do responsável: <br>
-                    <input class="input" name="rg_resp" value="<?=$responsavel['rg']?>" placeholder="ex: xx-11.111.111" required> <br>
+                    <input class="input" name="rg_resp" onchange="ehRg('rg_resp', 0)" value="<?=$responsavel['rg']?>" placeholder="ex: xx-11.111.111" required> <br>
                     CPF do responsável: <br>
-                    <input class="input" name="cpf_resp" value="<?=$responsavel['cpf']?>" placeholder="ex: 111.111.111-11" required> <br>
+                    <input class="input" name="cpf_resp" onchange="ehCpf('cpf_resp', 0)" value="<?=$responsavel['cpf']?>" placeholder="ex: 111.111.111-11" required> <br>
                     Telefone do responsável: <br>
-                    <input class="input" name="tel_resp" value="<?=$responsavel['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
+                    <input class="input" name="tel_resp" onchange="ehTel('tel_resp', 0)" value="<?=$responsavel['telefone']?>" placeholder="ex: 11 1111-1111"> <br>
                     Celular do responsável: <br>
-                    <input class="input" name="cel_resp" value="<?=$responsavel['celular']?>" placeholder="ex: 11 1 1111-1111" required> <br>
+                    <input class="input" name="cel_resp" onchange="ehCel('cel_resp', 0)" value="<?=$responsavel['celular']?>" placeholder="ex: 11 1 1111-1111" required> <br>
                     E-mail do responsável: <br>
                     <input class="input" name="email_resp" value="<?=$responsavel['email']?>" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
@@ -127,19 +128,19 @@
                     Rua: <br>
                     <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
                     Número: <br>
-                    <input class="input" value="<?=$endereco['numero']?>" name="num" required> <br>
+                    <input class="input" onchange="ehNum('num', 0)" value="<?=$endereco['numero']?>" name="num" required> <br>
                     Complemento: <br>
                     <input class="input" value="<?=$endereco['complemento']?>" name="complemento" required> <br>
                     Bairro: <br>
                     <input class="input" value="<?=$endereco['bairro']?>" name="bairro" required> <br>
                     Cep: <br>
-                    <input class="input" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
+                    <input class="input" onchange="ehCep('cep', 0)" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
                     Cidade: <br>
-                    <input class="input" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
+                    <input class="input" onchange="ehString('cidade', 0)" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
                     Estado: <br>
-                    <input class="input" value="<?=$endereco['estado']?>" name="estado" required> <br>
+                    <input class="input" onchange="ehString('cidade', 0)" value="<?=$endereco['estado']?>" name="estado" required> <br>
                     País: <br>
-                    <input class="input" value="<?=$endereco['pais']?>" name="pais" required> <br>
+                    <input class="input" onchange="ehString('cidade', 0)" value="<?=$endereco['pais']?>" name="pais" required> <br>
 
                     <button class="btn" type="submit">Submeter</button>
                     </div>
@@ -158,25 +159,25 @@
                         Matricula do professor: <br>
                         <input class="input" name="matricula_" value="<?=$info?>"  placeholder="Nome completo" disabled="true" required disable> <br>     
                         Disciplina: <br>
-                        <input class="input" name="atuacao" value="<?=$professor['disciplica']?>"disabled="true" placeholder="ex: português" required> <br>  
+                        <input class="input" name="atuacao" onchange="ehString('atuacao', 1)" value="<?=$professor['disciplica']?>"disabled="true" placeholder="ex: português" required> <br>  
                         Sigla da disciplina: <br>
                         <input class="input" name="sigla_discplina"  value="<?=$professor['sigla_disc']?>"disabled="true" placeholder="nome da atividade" required> <br>  
                         RG: <br>
-                        <input class="input" name="rg"  value="<?=$professor['rg']?>"disabled="true" placeholder="ex: xx-11.111.111" required> <br>  
+                        <input class="input" name="rg" onchange="ehRg('rg', 1)"  value="<?=$professor['rg']?>"disabled="true" placeholder="ex: xx-11.111.111" required> <br>  
                         CPF: <br>
-                        <input class="input" name="cpf"  value="<?=$professor['cpf']?>"disabled="true" placeholder="ex: 111.111.111-11" required> <br>  
+                        <input class="input" name="cpf" onchange="ehCpf('cpf', 1)"  value="<?=$professor['cpf']?>"disabled="true" placeholder="ex: 111.111.111-11" required> <br>  
                         Área de atuação: <br>
-                        <input class="input" name="area_atuacao"  value="<?=$professor['atuacao']?>"disabled="true" placeholder="ex: exatas" required> <br>  
+                        <input class="input" name="area_atuacao" onchange="ehString('area_atuacao', 1)"  value="<?=$professor['atuacao']?>"disabled="true" placeholder="ex: exatas" required> <br>  
                         Data de nascimento: <br>
                         <input class="input" name="nascimento"  value="<?=$professor['nascimento']?>"disabled="true" type="date" placeholder="nome da atividade" required> <br>  
 
                         <p class="subTitle_form">Informações de contato</p>
                         Telefone: <br>
-                        <input class="input" value="<?=$contato['telefone']?>" name="tel"  placeholder="ex: 11 1111-1111"> <br>
+                        <input class="input" onchange="ehTel('tel', 1)" value="<?=$contato['telefone']?>" name="tel"  placeholder="ex: 11 1111-1111"> <br>
                         Celular: <br>
-                        <input class="input" value="<?=$contato['cel1']?>" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
+                        <input class="input" onchange="ehCel('cel1', 1)" value="<?=$contato['cel1']?>" name="cel1" placeholder="ex: 11 1 1111-1111" required> <br>
                         Celular(2): <br>
-                        <input class="input" value="<?=$contato['cel2']?>" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
+                        <input class="input" onchange="ehCel('cel2', 1)" value="<?=$contato['cel2']?>" name="cel2" placeholder="ex: 11 1 1111-1111" required> <br>
                         E-mail: <br>
                         <input class="input" value="<?=$contato['email']?>" name="email" type="email" placeholder="ex: exemplo@exemplo.com" required> <br>
 
@@ -184,19 +185,19 @@
                         Rua: <br>
                         <input class="input" value="<?=$endereco['rua']?>" name="rua" required> <br>
                         Número: <br>
-                        <input class="input" value="<?=$endereco['numero']?>" name="num" required> <br>
+                        <input class="input" onchange="ehNum('num', 1)" value="<?=$endereco['numero']?>" name="num" required> <br>
                         Complemento: <br>
                         <input class="input" value="<?=$endereco['complemento']?>" name="complemento" required> <br>
                         Bairro: <br>
                         <input class="input" value="<?=$endereco['bairro']?>" name="bairro" required> <br>
                         Cep: <br>
-                        <input class="input" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
+                        <input class="input" onchange="ehCep('cep', 1)" value="<?=$endereco['cep']?>" name="cep" placeholder="11.111-000" required> <br>
                         Cidade: <br>
-                        <input class="input" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
+                        <input class="input"onchange="ehString('cidade', 1)" value="<?=$endereco['cidade']?>" name="cidade" required> <br>
                         Estado: <br>
-                        <input class="input" value="<?=$endereco['estado']?>" name="estado" required> <br>
+                        <input class="input"onchange="ehString('estado', 1)" value="<?=$endereco['estado']?>" name="estado" required> <br>
                         País: <br>
-                        <input class="input" value="<?=$endereco['pais']?>" name="pais" required> <br>
+                        <input class="input"onchange="ehString('pais', 1)" value="<?=$endereco['pais']?>" name="pais" required> <br>
 
 
                         <button class="btn" type="submit">Submeter</button>

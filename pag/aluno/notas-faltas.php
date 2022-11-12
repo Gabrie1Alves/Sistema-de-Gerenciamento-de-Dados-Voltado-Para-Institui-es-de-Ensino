@@ -66,9 +66,9 @@
                     <?php endif;?>
                     <table class="notas_faltas"> 
                         <tr>
-                            <th>Atividade:<?=$i['titulo']?></th>
-                            <th>Valor:<?=$i['valor_atividade']?></th>
-                            <th>Nota:<?=$i['valor_atingido']?></th>
+                            <th>Atividade: <?=$i['titulo']?></th>
+                            <th>Valor: <?=$i['valor_atividade']?></th>
+                            <th>Nota: <?=$i['valor_atingido']?></th>
                         </tr>
                     </table>
                 <?php endforeach;?>
