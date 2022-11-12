@@ -158,3 +158,12 @@ function ehRg(campo, id){
     }
 }
 
+function verificaSiglaDisc(disc_list, campo){
+    var a = document.getElementsByName(campo).value;
+    if(disc_list.includes(a)){
+        console.log('entrou');
+        a.value = "";
+    }
+    console.log(disc_list, campo);
+}
+

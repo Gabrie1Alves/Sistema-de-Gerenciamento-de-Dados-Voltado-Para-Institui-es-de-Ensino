@@ -1,0 +1,23 @@
+->envio de emails a responsáveis e alunos:
+	- Atividade avaliativa marcada
+	- Atualização de notas e faltas
+
+
+->(OK)verificar retorno SQL, se der erro desfazer alterações e voltar pro inicio falando oque aconteceu, o mesmo para acerto
+	1 = cadastro 2= att
+
+
+
+->select nos form
+
+->(OK)colocar imagem na vizualização dos arquivos
+
+
+->(OK)fazer verificação de campos:
+	se digitar um campo inválido trazer o valor "" para o campo
+	utilizar onchange js para fazer isso
+
+->(OK)front de alunos
+
+->(OK)mobile
+

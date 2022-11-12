@@ -56,16 +56,16 @@
         } 
     }else{
         $sql = "DELETE FROM atividades_avaliativas WHERE id = '$id'";
-        mysqli_query($conn, $sql)
+        mysqli_query($conn, $sql);
         $sql = "DELETE FROM turma_notas where id_atividade = $id";
-        mysqli_query($conn, $sql)
+        mysqli_query($conn, $sql);
     }
 
     if($erro > 0){
         $sql = "DELETE FROM atividades_avaliativas WHERE id = '$id_atividade'";
-        mysqli_query($conn, $sql)
+        mysqli_query($conn, $sql);
         $sql = "DELETE FROM turma_notas where id_atividade = $id_atividade";
-        mysqli_query($conn, $sql)
+        mysqli_query($conn, $sql);
 
         echo "<script> window.location = '../home/professor.php?e=1'</script>";
     }else{

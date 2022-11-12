@@ -3,11 +3,30 @@
     if(!isset($_SESSION['usuario'])){
         header("location: http://localhost/tcc/");
     }  
+    include_once '../../conection/conect.php';
+    $sql = "SELECT sigla FROM turma";
+    $sql = mysqli_query($conn, $sql);
+    if($sql->num_rows > 0){
+        while($v = $sql->fetch_assoc()){
+            $turma[] = $v;
+        }
+    }
+
+    $sql = "SELECT sigla_disc FROM professor";
+    $sql = mysqli_query($conn, $sql);
+    if($sql->num_rows > 0){
+        while($v = $sql->fetch_assoc()){
+            $sigla_disc[] = $v['sigla_disc'];
+        }
+    }
 ?>
+<script>
+    var disc = <?=json_encode($sigla_disc)?>;
+</script>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Cadastro</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
@@ -62,7 +81,13 @@
                     E-mail: <br>
                     <input class="input" name="email" type="email" placeholder="ex.: exemplo@exemplo.com" required> <br>
                     Turma: <br>
-                    <input class="input" name="turma" required> <br>
+                    <select class="input" name="turma" required>
+                        <?php
+                            foreach($turma as $t){
+                                echo "<option value=".$t['sigla'].">".$t['sigla']."</option>";
+                            }
+                        ?>
+                    </select> <br>
 
                     <p class="subTitle_form">Informações do responsável</p>
 
@@ -111,7 +136,7 @@
                     Disciplina: <br>
                     <input class="input" name="disciplina" onchange="ehString('disciplina', 1)" placeholder="ex.: Português" required> <br>  
                     Sigla da disciplina: <br>
-                    <input class="input" name="sigla_discplina" placeholder="Sigla da disciplina" required> <br>  
+                    <input class="input" name="sigla_discplina" onchange='verificaSiglaDisc(<?=json_encode($sigla_disc)?>,"sigla_discplina")' placeholder="Sigla da disciplina" required> <br>  
                     RG: <br>
                     <input class="input" name="rg" onchange="ehRg('rg', 1)" placeholder="ex.: 11.111.111" required> <br>  
                     CPF: <br>
@@ -166,19 +191,65 @@
                     Ano de criação: <br>
                     <input class="input" name="ano" type="date" required> <br> 
                     Sigla disciplina 1: <br>
-                    <input class="input" name="disciplina1" required> <br> 
+                    <select class="input" name="disciplina1" required>
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                    </select> <br>
+
                     Sigla disciplina 2: <br>
-                    <input class="input" name="disciplina2" required> <br> 
+                    <select class="input" name="disciplina2" required>
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                    </select> <br>
                     Sigla disciplina 3: <br>
-                    <input class="input" name="disciplina3" required> <br> 
+                    <select class="input" name="disciplina3" required>
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                    </select> <br>
                     Sigla disciplina 4: <br>
-                    <input class="input" name="disciplina4" required> <br> 
+                    <select class="input" name="disciplina4" required>
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                    </select> <br>
                     Sigla disciplina 5: <br>
-                    <input class="input" name="disciplina5"> <br> 
+                    <select class="input" name="disciplina5">
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                        <option selected value=""></option>
+                    </select> <br>
                     Sigla disciplina 6: <br>
-                    <input class="input" name="disciplina6"> <br> 
+                    <select class="input" name="disciplina6">
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                        <option selected value=""></option>
+                    </select> <br>
                     Sigla disciplina 7: <br>
-                    <input class="input" name="disciplina7"> <br> 
+                    <select class="input" name="disciplina7">
+                        <?php
+                            foreach($sigla_disc as $t){
+                                echo "<option value=".$t.">".$t."</option>";
+                            }
+                        ?>
+                        <option selected value=""></option>
+                    </select> <br>
 
                     <p class="subTitle_form">Dia e horario das disciplinas</p>
                     Dias de aula da disciplina 1 e horario: <br>

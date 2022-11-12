@@ -30,8 +30,8 @@
     }
 
     if($erro > 0){
-        echo "<script> window.location = '../home/gerenciador.php?e=2'</script>";
+        echo "<script> window.location = '../home/professor.php?e=2'</script>";
     }else{
-        echo "<script> window.location = '../home/gerenciador.php?e=0'</script>";
+        echo "<script> window.location = '../home/professor.php?e=0'</script>";
     }
 ?>
