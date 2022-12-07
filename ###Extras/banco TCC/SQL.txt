@@ -1,6 +1,3 @@
-utilizador -> tccuser
-senha -> SWES132tccQW
-
 CREATE TABLE usuario (
 	matricula int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     tipo varchar(15) NOT NULL,

@@ -1,0 +1,4 @@
+utilizador -> tccuser
+senha -> SWES132tccQW
+
+id -> 1		-> Gerenciador

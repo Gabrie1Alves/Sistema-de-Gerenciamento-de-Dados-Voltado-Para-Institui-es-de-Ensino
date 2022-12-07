@@ -76,7 +76,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Notas</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
@@ -87,7 +87,7 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container" style="margin-bottom:50px;">
-            <p class="titulo_nf">Atualizando notas e faltas da turma <?=$turma?>:</p>
+            <p class="titulo_nf">Atualizando notas da turma <?=$turma?>:</p>
             <form class="borda" enctype = "multipart/form-data" action="_notas.php" method="POST">
             
                 <?php foreach($nome_atividades as $nome_at):?>

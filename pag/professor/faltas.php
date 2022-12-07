@@ -26,7 +26,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Faltas</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
@@ -40,7 +40,7 @@
         <?php include_once '../../header_footer/header.php'?>
 
         <div class="container" style="margin-bottom:50px;">
-            <p class="titulo_nf">Atualizando notas e faltas da turma <?=$turma?>:</p>
+            <p class="titulo_nf">Atualizando faltas da turma <?=$turma?>:</p>
             <form class="borda" enctype = "multipart/form-data" action="_faltas.php" method="POST">
             
                 <?php foreach($faltas as $f):?>

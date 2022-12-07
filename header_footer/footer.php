@@ -1,1 +1,1 @@
-<a class="footer" href="https://github.com/Gabrie1Alves/Sistema-de-Gerenciamento-de-Dados-Voltado-Para-Instituicoes-de-Ensino">Sistema de gerenciamento de dados voltado para instituicoes de ensino</a>
+<a class="footer" href="https://github.com/Gabrie1Alves/Sistema-de-Gerenciamento-de-Dados-Voltado-Para-Instituicoes-de-Ensino">Sistema de gerenciamento de dados voltado para instituicoes de ensino público</a>

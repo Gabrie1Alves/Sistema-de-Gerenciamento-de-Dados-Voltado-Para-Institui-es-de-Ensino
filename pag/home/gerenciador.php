@@ -9,7 +9,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Gerenciador</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">

@@ -46,7 +46,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Notas e faltas</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">

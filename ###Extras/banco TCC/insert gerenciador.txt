@@ -1,8 +1,8 @@
 insert into usuario (tipo, senha, nome) 
-	values ('gerenciador', '123qwe', 'Gerenciador Teste');
+	values ('Gerenciador', '123qwe', 'Paulo Henrique Freitas');
 insert into gerenciador(matricula, rg, cpf, nascimento)
-	values (1, 'MG-19.852.913', '146.598.276-07', '1999-09-30');
+	values (1, 'MG-19.852.111', '146.598.276-00', '1999-09-30');
 insert into endereco(matricula, rua, numero, complemento, bairro, cep, cidade, estado, pais)
-	values (1, 'rua teste', 201, 'complemento teste', 'centro', '38810-000', 'Rio Paranaiba', 'MG', 'Brasil');
+	values (1, 'Rua das Flores', 201, 'Casa', 'centro', '38810-000', 'Rio Paranaiba', 'MG', 'Brasil');
 insert into contato (matricula, telefone, cel1, cel2, email)
-	Values (1, '34 3855-2262', '34 9 9797-0972', '34 9 9797-0972', 'gerenciador@email.com')
+	Values (1, '34 3855-2262', '34 9 9797-0972', '34 9 9797-0972', 'paulohenrique@exemple.com')

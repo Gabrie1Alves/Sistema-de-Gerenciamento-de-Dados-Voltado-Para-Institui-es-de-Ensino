@@ -11,9 +11,12 @@
     .login{
         width: 300px;
     }
+    .login_logo{
+        transform: translateX(30px) !important;
+    }
 }
 .login_logo{
-    width: 100px;
+    transform: translateX(80px);
     margin: auto;
     padding: 35px 0;
     font-size: 1.8rem;

@@ -8,7 +8,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>SAPNET</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="./css/geral/css.css">
@@ -17,7 +17,7 @@
     <body class="min-height-100">
         <div class="header_total">
             <div class="header">
-                <a  href="./default.php"><div class="header_op">Logo</div></a>
+                <a  href="./default.php"><div class="header_op">Início</div></a>
                 <a  href="./pag/topo/contato.php"><div class="header_op">Contato</div></a>
                 <a  href="./default.php"><div class="header_op">Configurações</div></a>
                 <a  href="./default.php"><div class="header_op">Sair</div></a>
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="login">
                 <div class="login_logo">
-                    Logo
+                    <img src="./img/logosemfundo.png" alt="">
                 </div>
                 <div class="login_info">
                         <form enctype = "multipart/form-data" form action="./pag/avalia_login.php" method="POST">

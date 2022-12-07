@@ -34,7 +34,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Atividades avaliativas</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">

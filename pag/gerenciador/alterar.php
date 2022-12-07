@@ -53,7 +53,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Alteração de cadastro</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">

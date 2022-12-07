@@ -21,7 +21,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
-        <title>Título</title>
+        <title>Atividades</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="../../css/geral/css.css">
